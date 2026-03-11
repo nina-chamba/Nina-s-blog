@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nina's & Family Adventure</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <style>
   :root {
     --terracotta: #C4613A;
@@ -463,6 +464,75 @@
   .social-btn:hover { background: var(--terracotta); }
   .footer-copy { font-size: 0.8rem; opacity: 0.45; }
 
+  /* ── MAP ── */
+  .map-section {
+    background: var(--cream);
+    padding: 5rem 2rem;
+  }
+  .map-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  #travel-map {
+    height: 480px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(44,26,14,0.15);
+    border: 3px solid var(--sand);
+  }
+  .map-legend {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--warm-brown);
+  }
+  .legend-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .dot-house { background: var(--terracotta); }
+  .dot-dest  { background: var(--tropical-teal); }
+  .dot-nina  { background: var(--jungle); }
+
+  /* Leaflet popup custom style */
+  .leaflet-popup-content-wrapper {
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(44,26,14,0.18) !important;
+    font-family: 'Lato', sans-serif;
+  }
+  .map-popup-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.2rem;
+  }
+  .map-popup-sub {
+    font-size: 0.8rem;
+    color: #9B7B60;
+  }
+  .map-popup-cat {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 50px;
+    margin-top: 0.4rem;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav { padding: 0.8rem 1.5rem; }
@@ -485,6 +555,7 @@
   <ul class="nav-links">
     <li><a href="#posts">Blog</a></li>
     <li><a href="#categorias">Categorías</a></li>
+    <li><a href="#mapa">Mapa</a></li>
     <li><a href="#nina">Nina</a></li>
     <li><a href="#newsletter">Contacto</a></li>
   </ul>
@@ -530,6 +601,23 @@
     <span class="label">Historias por contar</span>
   </div>
 </div>
+
+<!-- MAP -->
+<section class="map-section" id="mapa">
+  <div class="map-wrapper">
+    <div class="section-header">
+      <span class="section-label">Nuestro recorrido</span>
+      <h2 class="section-title">El mapa de <em>nuestras aventuras</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <div id="travel-map"></div>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot dot-house"></div> House Sit</div>
+      <div class="legend-item"><div class="legend-dot dot-dest"></div> Destino visitado</div>
+      <div class="legend-item"><div class="legend-dot dot-nina"></div> Aventura con Nina</div>
+    </div>
+  </div>
+</section>
 
 <!-- CATEGORÍAS -->
 <section class="categories-section" id="categorias">
@@ -730,5 +818,97 @@
   <p class="footer-copy">© 2025 Nina's & Family Adventure · Hecho con ❤️ y muchas aventuras</p>
 </footer>
 
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+  // Données des lieux visités
+  const places = [
+    { name: "Lisboa", country: "Portugal", lat: 38.717, lng: -9.139, type: "house", emoji: "🏡", date: "Mar 2025", note: "Nuestro primer house sit — dos gatos y una ciudad increíble" },
+    { name: "Medellín", country: "Colombia", lat: 6.244, lng: -75.581, type: "dest", emoji: "🌿", date: "Ene 2025", note: "La ciudad de la eterna primavera, perfecta con perros" },
+    { name: "Barcelona", country: "España", lat: 41.385, lng: 2.173, type: "nina", emoji: "🐾", date: "Ago 2024", note: "Nina conquistó las playas y los parques" },
+    { name: "Ámsterdam", country: "Países Bajos", lat: 52.370, lng: 4.895, type: "dest", emoji: "🚲", date: "Jun 2024", note: "Una ciudad sorprendentemente pet-friendly" },
+    { name: "Tulum", country: "México", lat: 20.211, lng: -87.465, type: "nina", emoji: "🌴", date: "Feb 2024", note: "Nina en la playa por primera vez — caos total (y mucho amor)" },
+    { name: "Porto", country: "Portugal", lat: 41.157, lng: -8.629, type: "house", emoji: "🏡", date: "Dic 2023", note: "House sit de dos semanas con un golden retriever" },
+    { name: "Berlín", country: "Alemania", lat: 52.520, lng: 13.405, type: "dest", emoji: "🏙️", date: "Oct 2023", note: "El paraíso para perros — parques por todos lados" },
+    { name: "Bali", country: "Indonesia", lat: -8.409, lng: 115.189, type: "nina", emoji: "🌺", date: "May 2023", note: "Nuestro primer destino lejano con Nina" },
+    { name: "Buenos Aires", country: "Argentina", lat: -34.603, lng: -58.381, type: "dest", emoji: "🥩", date: "Mar 2023", note: "El asado, los parques y la mejor veterinaria del viaje" },
+    { name: "Chiang Mai", country: "Tailandia", lat: 18.788, lng: 98.985, type: "house", emoji: "🏡", date: "Ene 2023", note: "House sit en una villa rodeada de montañas" },
+    { name: "Roma", country: "Italia", lat: 41.902, lng: 12.496, type: "dest", emoji: "🏛️", date: "Sep 2022", note: "Descubrir que casi todos los restaurantes admiten perros" },
+    { name: "Ciudad de México", country: "México", lat: 19.433, lng: -99.133, type: "nina", emoji: "🌮", date: "Jul 2022", note: "CDMX con Nina: sorpresas, parques y mucha comida" },
+  ];
+
+  const colors = {
+    house: "#C4613A",
+    dest:  "#2A8C7A",
+    nina:  "#2D5A3D",
+  };
+
+  const catLabels = {
+    house: "House Sit",
+    dest:  "Destino",
+    nina:  "Con Nina",
+  };
+
+  const map = L.map("travel-map", {
+    center: [25, 10],
+    zoom: 2,
+    minZoom: 1,
+    maxZoom: 12,
+    scrollWheelZoom: false,
+  });
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 18,
+  }).addTo(map);
+
+  // Enable scroll zoom on click inside map
+  map.once("focus", () => map.scrollWheelZoom.enable());
+  document.getElementById("travel-map").addEventListener("click", () => map.scrollWheelZoom.enable());
+
+  places.forEach(p => {
+    const color = colors[p.type];
+    const markerHtml = `
+      <div style="
+        width:32px;height:32px;
+        background:${color};
+        border:3px solid white;
+        border-radius:50%;
+        box-shadow:0 3px 10px rgba(0,0,0,0.25);
+        display:flex;align-items:center;justify-content:center;
+        font-size:14px;
+        cursor:pointer;
+        transition:transform 0.2s;
+      ">${p.emoji}</div>
+    `;
+
+    const icon = L.divIcon({
+      html: markerHtml,
+      className: "",
+      iconSize: [32, 32],
+      iconAnchor: [16, 16],
+      popupAnchor: [0, -18],
+    });
+
+    const catBg = {
+      house: "rgba(196,97,58,0.12)",
+      dest:  "rgba(42,140,122,0.12)",
+      nina:  "rgba(45,90,61,0.12)",
+    }[p.type];
+
+    const popup = `
+      <div style="min-width:170px">
+        <div class="map-popup-title">${p.emoji} ${p.name}</div>
+        <div class="map-popup-sub">📍 ${p.country} · 🗓️ ${p.date}</div>
+        <span class="map-popup-cat" style="background:${catBg};color:${color};">${catLabels[p.type]}</span>
+        <p style="margin-top:0.5rem;font-size:0.82rem;color:#6B5040;line-height:1.5;">${p.note}</p>
+      </div>
+    `;
+
+    L.marker([p.lat, p.lng], { icon })
+      .addTo(map)
+      .bindPopup(popup, { maxWidth: 240 });
+  });
+</script>
 </body>
 </html>
