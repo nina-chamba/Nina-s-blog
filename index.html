@@ -62,6 +62,33 @@
   }
   .nav-links a:hover { color: var(--terracotta); }
 
+  /* ── LANG SWITCHER ── */
+  .lang-switcher {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    margin-left: 1.5rem;
+  }
+  .lang-btn {
+    background: none;
+    border: 2px solid var(--sand);
+    border-radius: 50px;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    color: var(--warm-brown);
+    transition: all 0.2s;
+    font-family: 'Lato', sans-serif;
+  }
+  .lang-btn:hover { border-color: var(--terracotta); color: var(--terracotta); }
+  .lang-btn.active {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: white;
+  }
+
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
@@ -75,7 +102,6 @@
     padding-top: 5rem;
   }
 
-  /* Decorative floating elements */
   .hero::before {
     content: '';
     position: absolute; top: 10%; right: 5%;
@@ -553,31 +579,36 @@
 <nav>
   <a href="#" class="nav-logo">Nina's <span>&</span> Family</a>
   <ul class="nav-links">
-    <li><a href="#posts">Blog</a></li>
-    <li><a href="#categorias">Categorías</a></li>
-    <li><a href="#mapa">Mapa</a></li>
+    <li><a href="#posts" data-i18n="nav_blog">Blog</a></li>
+    <li><a href="#categorias" data-i18n="nav_categorias">Categorías</a></li>
+    <li><a href="#mapa" data-i18n="nav_mapa">Mapa</a></li>
     <li><a href="#nina">Nina</a></li>
-    <li><a href="#newsletter">Contacto</a></li>
+    <li><a href="#newsletter" data-i18n="nav_contacto">Contacto</a></li>
   </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
+    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+    <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <span class="hero-paw">🐾</span>
-    <div class="hero-tag">✈️ Nómadas Digitales · House Sitters · Aventureros</div>
+    <div class="hero-tag" data-i18n="hero_tag">✈️ Nómadas Digitales · House Sitters · Aventureros</div>
     <h1>Nina's <span class="amp">&</span><br><span class="family">Family</span> Adventure</h1>
-    <p class="hero-sub">Dos humanos, una perra y el mundo entero por explorar</p>
-    <p class="hero-desc">
+    <p class="hero-sub" data-i18n="hero_sub">Dos humanos, una perra y el mundo entero por explorar</p>
+    <p class="hero-desc" data-i18n="hero_desc">
       Vivimos viajando, trabajando desde cualquier rincón del planeta y cuidando hogares ajenos con Nina como nuestra copilota de cuatro patas. Esta es nuestra historia.
     </p>
     <div class="hero-pills">
-      <span class="pill">🏡 House Sitting</span>
-      <span class="pill">💻 Nómadas Digitales</span>
-      <span class="pill">🐕 Pet Friendly</span>
-      <span class="pill">❤️ En Pareja</span>
+      <span class="pill" data-i18n="pill_house">🏡 House Sitting</span>
+      <span class="pill" data-i18n="pill_nomads">💻 Nómadas Digitales</span>
+      <span class="pill" data-i18n="pill_pet">🐕 Pet Friendly</span>
+      <span class="pill" data-i18n="pill_couple">❤️ En Pareja</span>
     </div>
-    <a href="#posts" class="hero-cta">Leer nuestras aventuras →</a>
+    <a href="#posts" class="hero-cta" data-i18n="hero_cta">Leer nuestras aventuras →</a>
   </div>
   <div class="scroll-hint">↓</div>
 </section>
@@ -586,19 +617,19 @@
 <div class="about-strip">
   <div class="about-stat">
     <span class="number">12+</span>
-    <span class="label">Países visitados</span>
+    <span class="label" data-i18n="stat1_label">Países visitados</span>
   </div>
   <div class="about-stat">
     <span class="number">30+</span>
-    <span class="label">House sits completados</span>
+    <span class="label" data-i18n="stat2_label">House sits completados</span>
   </div>
   <div class="about-stat">
     <span class="number">1</span>
-    <span class="label">Perra aventurera 🐾</span>
+    <span class="label" data-i18n="stat3_label">Perra aventurera 🐾</span>
   </div>
   <div class="about-stat">
     <span class="number">∞</span>
-    <span class="label">Historias por contar</span>
+    <span class="label" data-i18n="stat4_label">Historias por contar</span>
   </div>
 </div>
 
@@ -606,15 +637,15 @@
 <section class="map-section" id="mapa">
   <div class="map-wrapper">
     <div class="section-header">
-      <span class="section-label">Nuestro recorrido</span>
-      <h2 class="section-title">El mapa de <em>nuestras aventuras</em></h2>
+      <span class="section-label" data-i18n="map_label">Nuestro recorrido</span>
+      <h2 class="section-title" data-i18n-html="map_title">El mapa de <em>nuestras aventuras</em></h2>
       <div class="section-line"></div>
     </div>
     <div id="travel-map"></div>
     <div class="map-legend">
-      <div class="legend-item"><div class="legend-dot dot-house"></div> House Sit</div>
-      <div class="legend-item"><div class="legend-dot dot-dest"></div> Destino visitado</div>
-      <div class="legend-item"><div class="legend-dot dot-nina"></div> Aventura con Nina</div>
+      <div class="legend-item"><div class="legend-dot dot-house"></div><span data-i18n="legend_house">House Sit</span></div>
+      <div class="legend-item"><div class="legend-dot dot-dest"></div><span data-i18n="legend_dest">Destino visitado</span></div>
+      <div class="legend-item"><div class="legend-dot dot-nina"></div><span data-i18n="legend_nina">Aventura con Nina</span></div>
     </div>
   </div>
 </section>
@@ -622,34 +653,34 @@
 <!-- CATEGORÍAS -->
 <section class="categories-section" id="categorias">
   <div class="section-header">
-    <span class="section-label">Explora</span>
-    <h2 class="section-title">Nuestras <em>categorías</em></h2>
+    <span class="section-label" data-i18n="cat_label">Explora</span>
+    <h2 class="section-title" data-i18n-html="cat_title">Nuestras <em>categorías</em></h2>
     <div class="section-line"></div>
   </div>
   <div class="cat-grid">
     <div class="cat-card cat-card-1">
       <span class="cat-icon">🏡</span>
-      <h3>House Sitting</h3>
-      <p>Cómo vivir gratis (o casi) alrededor del mundo cuidando hogares y mascotas.</p>
-      <span class="cat-count">15 artículos</span>
+      <h3 data-i18n="cat1_title">House Sitting</h3>
+      <p data-i18n="cat1_desc">Cómo vivir gratis (o casi) alrededor del mundo cuidando hogares y mascotas.</p>
+      <span class="cat-count" data-i18n="cat1_count">15 artículos</span>
     </div>
     <div class="cat-card cat-card-2">
       <span class="cat-icon">🗺️</span>
-      <h3>Destinos</h3>
-      <p>Guías, tips y secretos de cada lugar que hemos llamado hogar temporalmente.</p>
-      <span class="cat-count">28 artículos</span>
+      <h3 data-i18n="cat2_title">Destinos</h3>
+      <p data-i18n="cat2_desc">Guías, tips y secretos de cada lugar que hemos llamado hogar temporalmente.</p>
+      <span class="cat-count" data-i18n="cat2_count">28 artículos</span>
     </div>
     <div class="cat-card cat-card-3">
       <span class="cat-icon">💻</span>
-      <h3>Vida Nómada Digital</h3>
-      <p>Trabajo remoto, herramientas, presupuestos y la realidad de vivir viajando.</p>
-      <span class="cat-count">12 artículos</span>
+      <h3 data-i18n="cat3_title">Vida Nómada Digital</h3>
+      <p data-i18n="cat3_desc">Trabajo remoto, herramientas, presupuestos y la realidad de vivir viajando.</p>
+      <span class="cat-count" data-i18n="cat3_count">12 artículos</span>
     </div>
     <div class="cat-card cat-card-4">
       <span class="cat-icon">🐾</span>
-      <h3>Viajar con Mascotas</h3>
-      <p>Todo lo que necesitas saber para viajar con tu perro sin dramas ni sorpresas.</p>
-      <span class="cat-count">10 artículos</span>
+      <h3 data-i18n="cat4_title">Viajar con Mascotas</h3>
+      <p data-i18n="cat4_desc">Todo lo que necesitas saber para viajar con tu perro sin dramas ni sorpresas.</p>
+      <span class="cat-count" data-i18n="cat4_count">10 artículos</span>
     </div>
   </div>
 </section>
@@ -657,8 +688,8 @@
 <!-- POSTS -->
 <section class="posts-section" id="posts">
   <div class="section-header">
-    <span class="section-label">Lo más reciente</span>
-    <h2 class="section-title">Últimas <em>aventuras</em></h2>
+    <span class="section-label" data-i18n="posts_label">Lo más reciente</span>
+    <h2 class="section-title" data-i18n-html="posts_title">Últimas <em>aventuras</em></h2>
     <div class="section-line"></div>
   </div>
   <div class="posts-grid">
@@ -666,90 +697,90 @@
     <div class="post-card">
       <div class="post-img post-img-1">🏡</div>
       <div class="post-body">
-        <span class="post-cat cat-house">House Sitting</span>
-        <h3>Nuestro primer house sit en Portugal: lo que nadie te cuenta</h3>
-        <p>Un piso en Lisboa, dos gatos y muchísimas lecciones aprendidas en nuestra primera experiencia como house sitters.</p>
+        <span class="post-cat cat-house" data-i18n="post1_cat">House Sitting</span>
+        <h3 data-i18n="post1_title">Nuestro primer house sit en Portugal: lo que nadie te cuenta</h3>
+        <p data-i18n="post1_desc">Un piso en Lisboa, dos gatos y muchísimas lecciones aprendidas en nuestra primera experiencia como house sitters.</p>
         <div class="post-meta">
-          <span>🗓️ Marzo 2025</span>
-          <span>📍 Lisboa</span>
+          <span data-i18n="post1_date">🗓️ Marzo 2025</span>
+          <span data-i18n="post1_loc">📍 Lisboa</span>
         </div>
         <br>
-        <a href="#" class="read-more">Leer más →</a>
+        <a href="#" class="read-more" data-i18n="read_more">Leer más →</a>
       </div>
     </div>
 
     <div class="post-card">
       <div class="post-img post-img-2">🌿</div>
       <div class="post-body">
-        <span class="post-cat cat-dest">Destinos</span>
-        <h3>Medellín con perro: guía completa para nómadas pet-friendly</h3>
-        <p>Parques, cafés, transporte y vecindarios — todo lo que necesitas para vivir en Medellín con tu compañero de cuatro patas.</p>
+        <span class="post-cat cat-dest" data-i18n="post2_cat">Destinos</span>
+        <h3 data-i18n="post2_title">Medellín con perro: guía completa para nómadas pet-friendly</h3>
+        <p data-i18n="post2_desc">Parques, cafés, transporte y vecindarios — todo lo que necesitas para vivir en Medellín con tu compañero de cuatro patas.</p>
         <div class="post-meta">
-          <span>🗓️ Enero 2025</span>
-          <span>📍 Medellín</span>
+          <span data-i18n="post2_date">🗓️ Enero 2025</span>
+          <span data-i18n="post2_loc">📍 Medellín</span>
         </div>
         <br>
-        <a href="#" class="read-more">Leer más →</a>
+        <a href="#" class="read-more" data-i18n="read_more">Leer más →</a>
       </div>
     </div>
 
     <div class="post-card">
       <div class="post-img post-img-3">💻</div>
       <div class="post-body">
-        <span class="post-cat cat-nomada">Nómada Digital</span>
-        <h3>Cuánto gastamos en 6 meses viajando en pareja (con perra incluida)</h3>
-        <p>Presupuesto real, desglose por país y los trucos que usamos para estirar cada euro sin sacrificar calidad de vida.</p>
+        <span class="post-cat cat-nomada" data-i18n="post3_cat">Nómada Digital</span>
+        <h3 data-i18n="post3_title">Cuánto gastamos en 6 meses viajando en pareja (con perra incluida)</h3>
+        <p data-i18n="post3_desc">Presupuesto real, desglose por país y los trucos que usamos para estirar cada euro sin sacrificar calidad de vida.</p>
         <div class="post-meta">
-          <span>🗓️ Dic 2024</span>
-          <span>💰 Finanzas</span>
+          <span data-i18n="post3_date">🗓️ Dic 2024</span>
+          <span data-i18n="post3_loc">💰 Finanzas</span>
         </div>
         <br>
-        <a href="#" class="read-more">Leer más →</a>
+        <a href="#" class="read-more" data-i18n="read_more">Leer más →</a>
       </div>
     </div>
 
     <div class="post-card">
       <div class="post-img post-img-4">🐾</div>
       <div class="post-body">
-        <span class="post-cat cat-nina">Con Nina</span>
-        <h3>Cómo viajamos en avión con Nina sin morir en el intento</h3>
-        <p>Cabina vs bodega, requisitos por país, documentación y todo lo que necesitas saber antes de volar con tu perro.</p>
+        <span class="post-cat cat-nina" data-i18n="post4_cat">Con Nina</span>
+        <h3 data-i18n="post4_title">Cómo viajamos en avión con Nina sin morir en el intento</h3>
+        <p data-i18n="post4_desc">Cabina vs bodega, requisitos por país, documentación y todo lo que necesitas saber antes de volar con tu perro.</p>
         <div class="post-meta">
-          <span>🗓️ Nov 2024</span>
-          <span>✈️ Viaje aéreo</span>
+          <span data-i18n="post4_date">🗓️ Nov 2024</span>
+          <span data-i18n="post4_loc">✈️ Viaje aéreo</span>
         </div>
         <br>
-        <a href="#" class="read-more">Leer más →</a>
+        <a href="#" class="read-more" data-i18n="read_more">Leer más →</a>
       </div>
     </div>
 
     <div class="post-card">
       <div class="post-img post-img-5">🏡</div>
       <div class="post-body">
-        <span class="post-cat cat-house">House Sitting</span>
-        <h3>Cómo crear un perfil de house sitter que consiga solicitudes</h3>
-        <p>Fotos, referencias, carta de presentación y los errores que casi todo el mundo comete al empezar.</p>
+        <span class="post-cat cat-house" data-i18n="post5_cat">House Sitting</span>
+        <h3 data-i18n="post5_title">Cómo crear un perfil de house sitter que consiga solicitudes</h3>
+        <p data-i18n="post5_desc">Fotos, referencias, carta de presentación y los errores que casi todo el mundo comete al empezar.</p>
         <div class="post-meta">
-          <span>🗓️ Oct 2024</span>
-          <span>📋 Guía</span>
+          <span data-i18n="post5_date">🗓️ Oct 2024</span>
+          <span data-i18n="post5_loc">📋 Guía</span>
         </div>
         <br>
-        <a href="#" class="read-more">Leer más →</a>
+        <a href="#" class="read-more" data-i18n="read_more">Leer más →</a>
       </div>
     </div>
 
     <div class="post-card">
       <div class="post-img post-img-6">🌍</div>
       <div class="post-body">
-        <span class="post-cat cat-dest">Destinos</span>
-        <h3>Los 5 países más pet-friendly de Europa para nómadas digitales</h3>
-        <p>Basado en nuestra experiencia viajando con Nina: burocracia, costes veterinarios, y calidad de vida para perros.</p>
+        <span class="post-cat cat-dest" data-i18n="post6_cat">Destinos</span>
+        <h3 data-i18n="post6_title">Los 5 países más pet-friendly de Europa para nómadas digitales</h3>
+        <p data-i18n="post6_desc">Basado en nuestra experiencia viajando con Nina: burocracia, costes veterinarios, y calidad de vida para perros.</p>
         <div class="post-meta">
-          <span>🗓️ Sep 2024</span>
-          <span>📍 Europa</span>
+          <span data-i18n="post6_date">🗓️ Sep 2024</span>
+          <span data-i18n="post6_loc">📍 Europa</span>
         </div>
         <br>
-        <a href="#" class="read-more">Leer más →</a>
+        <a href="#" class="read-more" data-i18n="read_more">Leer más →</a>
       </div>
     </div>
 
@@ -761,11 +792,11 @@
   <div class="nina-content">
     <div class="nina-avatar">🐕</div>
     <div class="section-header">
-      <span class="section-label" style="color: var(--mango-light);">La protagonista</span>
-      <h2 class="section-title">Conoce a <em>Nina</em></h2>
+      <span class="section-label" style="color: var(--mango-light);" data-i18n="nina_label">La protagonista</span>
+      <h2 class="section-title" data-i18n-html="nina_title">Conoce a <em>Nina</em></h2>
       <div class="section-line"></div>
     </div>
-    <p>
+    <p data-i18n="nina_desc">
       Nina no es solo nuestra perra — es nuestra brújula, nuestro motivo para explorar parques desconocidos,
       nuestra excusa perfecta para hablar con extraños y la razón por la que hemos descubierto los rincones
       más bonitos e inesperados de cada ciudad. Donde nosotros vamos, ella va.
@@ -773,19 +804,19 @@
     <div class="nina-facts">
       <div class="nina-fact">
         <strong>🌍 12+</strong>
-        países recorridos
+        <span data-i18n="nina_fact1">países recorridos</span>
       </div>
       <div class="nina-fact">
         <strong>✈️ 20+</strong>
-        vuelos completados
+        <span data-i18n="nina_fact2">vuelos completados</span>
       </div>
       <div class="nina-fact">
         <strong>🏡 30+</strong>
-        hogares temporales
+        <span data-i18n="nina_fact3">hogares temporales</span>
       </div>
       <div class="nina-fact">
         <strong>❤️ 100%</strong>
-        buena chica
+        <span data-i18n="nina_fact4">buena chica</span>
       </div>
     </div>
   </div>
@@ -794,67 +825,375 @@
 <!-- NEWSLETTER -->
 <section class="newsletter-section" id="newsletter">
   <div class="section-header">
-    <span class="section-label" style="color: var(--mango-light);">Únete a la familia</span>
-    <h2 class="section-title">¿Te vienes de <em>aventura</em>?</h2>
+    <span class="section-label" style="color: var(--mango-light);" data-i18n="nl_label">Únete a la familia</span>
+    <h2 class="section-title" data-i18n-html="nl_title">¿Te vienes de <em>aventura</em>?</h2>
     <div class="section-line" style="background: var(--mango-light);"></div>
   </div>
-  <p>Recibe nuestras historias, guías y tips de house sitting directamente en tu correo. Sin spam, solo aventuras.</p>
+  <p data-i18n="nl_desc">Recibe nuestras historias, guías y tips de house sitting directamente en tu correo. Sin spam, solo aventuras.</p>
   <div class="newsletter-form">
-    <input type="email" placeholder="tu@correo.com">
-    <button type="button">¡Me apunto! 🐾</button>
+    <input type="email" data-i18n-placeholder="nl_placeholder" placeholder="tu@correo.com">
+    <button type="button" data-i18n="nl_btn">¡Me apunto! 🐾</button>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <span class="footer-logo">Nina's <span>&</span> Family Adventure</span>
-  <p>Dos humanos, una perra y el mundo entero por explorar 🌍</p>
+  <p data-i18n="footer_sub">Dos humanos, una perra y el mundo entero por explorar 🌍</p>
   <div class="footer-social">
     <a href="#" class="social-btn">📸</a>
     <a href="#" class="social-btn">▶️</a>
     <a href="#" class="social-btn">🐦</a>
     <a href="#" class="social-btn">📌</a>
   </div>
-  <p class="footer-copy">© 2025 Nina's & Family Adventure · Hecho con ❤️ y muchas aventuras</p>
+  <p class="footer-copy" data-i18n="footer_copy">© 2025 Nina's & Family Adventure · Hecho con ❤️ y muchas aventuras</p>
 </footer>
 
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
-  // Données des lieux visités
+  /* ─────────────────────────────────────────
+     TRANSLATIONS
+  ───────────────────────────────────────── */
+  const translations = {
+    es: {
+      nav_blog: "Blog",
+      nav_categorias: "Categorías",
+      nav_mapa: "Mapa",
+      nav_contacto: "Contacto",
+      hero_tag: "✈️ Nómadas Digitales · House Sitters · Aventureros",
+      hero_sub: "Dos humanos, una perra y el mundo entero por explorar",
+      hero_desc: "Vivimos viajando, trabajando desde cualquier rincón del planeta y cuidando hogares ajenos con Nina como nuestra copilota de cuatro patas. Esta es nuestra historia.",
+      pill_house: "🏡 House Sitting",
+      pill_nomads: "💻 Nómadas Digitales",
+      pill_pet: "🐕 Pet Friendly",
+      pill_couple: "❤️ En Pareja",
+      hero_cta: "Leer nuestras aventuras →",
+      stat1_label: "Países visitados",
+      stat2_label: "House sits completados",
+      stat3_label: "Perra aventurera 🐾",
+      stat4_label: "Historias por contar",
+      map_label: "Nuestro recorrido",
+      map_title: "El mapa de <em>nuestras aventuras</em>",
+      legend_house: "House Sit",
+      legend_dest: "Destino visitado",
+      legend_nina: "Aventura con Nina",
+      cat_label: "Explora",
+      cat_title: "Nuestras <em>categorías</em>",
+      cat1_title: "House Sitting",
+      cat1_desc: "Cómo vivir gratis (o casi) alrededor del mundo cuidando hogares y mascotas.",
+      cat1_count: "15 artículos",
+      cat2_title: "Destinos",
+      cat2_desc: "Guías, tips y secretos de cada lugar que hemos llamado hogar temporalmente.",
+      cat2_count: "28 artículos",
+      cat3_title: "Vida Nómada Digital",
+      cat3_desc: "Trabajo remoto, herramientas, presupuestos y la realidad de vivir viajando.",
+      cat3_count: "12 artículos",
+      cat4_title: "Viajar con Mascotas",
+      cat4_desc: "Todo lo que necesitas saber para viajar con tu perro sin dramas ni sorpresas.",
+      cat4_count: "10 artículos",
+      posts_label: "Lo más reciente",
+      posts_title: "Últimas <em>aventuras</em>",
+      post1_cat: "House Sitting",
+      post1_title: "Nuestro primer house sit en Portugal: lo que nadie te cuenta",
+      post1_desc: "Un piso en Lisboa, dos gatos y muchísimas lecciones aprendidas en nuestra primera experiencia como house sitters.",
+      post1_date: "🗓️ Marzo 2025",
+      post1_loc: "📍 Lisboa",
+      post2_cat: "Destinos",
+      post2_title: "Medellín con perro: guía completa para nómadas pet-friendly",
+      post2_desc: "Parques, cafés, transporte y vecindarios — todo lo que necesitas para vivir en Medellín con tu compañero de cuatro patas.",
+      post2_date: "🗓️ Enero 2025",
+      post2_loc: "📍 Medellín",
+      post3_cat: "Nómada Digital",
+      post3_title: "Cuánto gastamos en 6 meses viajando en pareja (con perra incluida)",
+      post3_desc: "Presupuesto real, desglose por país y los trucos que usamos para estirar cada euro sin sacrificar calidad de vida.",
+      post3_date: "🗓️ Dic 2024",
+      post3_loc: "💰 Finanzas",
+      post4_cat: "Con Nina",
+      post4_title: "Cómo viajamos en avión con Nina sin morir en el intento",
+      post4_desc: "Cabina vs bodega, requisitos por país, documentación y todo lo que necesitas saber antes de volar con tu perro.",
+      post4_date: "🗓️ Nov 2024",
+      post4_loc: "✈️ Viaje aéreo",
+      post5_cat: "House Sitting",
+      post5_title: "Cómo crear un perfil de house sitter que consiga solicitudes",
+      post5_desc: "Fotos, referencias, carta de presentación y los errores que casi todo el mundo comete al empezar.",
+      post5_date: "🗓️ Oct 2024",
+      post5_loc: "📋 Guía",
+      post6_cat: "Destinos",
+      post6_title: "Los 5 países más pet-friendly de Europa para nómadas digitales",
+      post6_desc: "Basado en nuestra experiencia viajando con Nina: burocracia, costes veterinarios, y calidad de vida para perros.",
+      post6_date: "🗓️ Sep 2024",
+      post6_loc: "📍 Europa",
+      read_more: "Leer más →",
+      nina_label: "La protagonista",
+      nina_title: "Conoce a <em>Nina</em>",
+      nina_desc: "Nina no es solo nuestra perra — es nuestra brújula, nuestro motivo para explorar parques desconocidos, nuestra excusa perfecta para hablar con extraños y la razón por la que hemos descubierto los rincones más bonitos e inesperados de cada ciudad. Donde nosotros vamos, ella va.",
+      nina_fact1: "países recorridos",
+      nina_fact2: "vuelos completados",
+      nina_fact3: "hogares temporales",
+      nina_fact4: "buena chica",
+      nl_label: "Únete a la familia",
+      nl_title: "¿Te vienes de <em>aventura</em>?",
+      nl_desc: "Recibe nuestras historias, guías y tips de house sitting directamente en tu correo. Sin spam, solo aventuras.",
+      nl_placeholder: "tu@correo.com",
+      nl_btn: "¡Me apunto! 🐾",
+      footer_sub: "Dos humanos, una perra y el mundo entero por explorar 🌍",
+      footer_copy: "© 2025 Nina's & Family Adventure · Hecho con ❤️ y muchas aventuras",
+      map_cat_house: "House Sit",
+      map_cat_dest: "Destino",
+      map_cat_nina: "Con Nina",
+    },
+    en: {
+      nav_blog: "Blog",
+      nav_categorias: "Categories",
+      nav_mapa: "Map",
+      nav_contacto: "Contact",
+      hero_tag: "✈️ Digital Nomads · House Sitters · Adventurers",
+      hero_sub: "Two humans, one dog and the whole world to explore",
+      hero_desc: "We live traveling, working from any corner of the planet and house sitting with Nina as our four-legged co-pilot. This is our story.",
+      pill_house: "🏡 House Sitting",
+      pill_nomads: "💻 Digital Nomads",
+      pill_pet: "🐕 Pet Friendly",
+      pill_couple: "❤️ As a Couple",
+      hero_cta: "Read our adventures →",
+      stat1_label: "Countries visited",
+      stat2_label: "House sits completed",
+      stat3_label: "Adventure dog 🐾",
+      stat4_label: "Stories to tell",
+      map_label: "Our journey",
+      map_title: "The map of <em>our adventures</em>",
+      legend_house: "House Sit",
+      legend_dest: "Visited destination",
+      legend_nina: "Adventure with Nina",
+      cat_label: "Explore",
+      cat_title: "Our <em>categories</em>",
+      cat1_title: "House Sitting",
+      cat1_desc: "How to live for free (or almost) around the world by house and pet sitting.",
+      cat1_count: "15 articles",
+      cat2_title: "Destinations",
+      cat2_desc: "Guides, tips and secrets from every place we've temporarily called home.",
+      cat2_count: "28 articles",
+      cat3_title: "Digital Nomad Life",
+      cat3_desc: "Remote work, tools, budgets and the reality of living while traveling.",
+      cat3_count: "12 articles",
+      cat4_title: "Traveling with Pets",
+      cat4_desc: "Everything you need to know to travel with your dog without any drama or surprises.",
+      cat4_count: "10 articles",
+      posts_label: "Latest",
+      posts_title: "Latest <em>adventures</em>",
+      post1_cat: "House Sitting",
+      post1_title: "Our first house sit in Portugal: what nobody tells you",
+      post1_desc: "An apartment in Lisbon, two cats and so many lessons learned in our first experience as house sitters.",
+      post1_date: "🗓️ March 2025",
+      post1_loc: "📍 Lisbon",
+      post2_cat: "Destinations",
+      post2_title: "Medellín with a dog: complete guide for pet-friendly nomads",
+      post2_desc: "Parks, cafés, transport and neighborhoods — everything you need to live in Medellín with your four-legged companion.",
+      post2_date: "🗓️ January 2025",
+      post2_loc: "📍 Medellín",
+      post3_cat: "Digital Nomad",
+      post3_title: "How much we spent in 6 months traveling as a couple (dog included)",
+      post3_desc: "Real budget, breakdown by country and the tricks we use to stretch every euro without sacrificing quality of life.",
+      post3_date: "🗓️ Dec 2024",
+      post3_loc: "💰 Finances",
+      post4_cat: "With Nina",
+      post4_title: "How we fly with Nina without losing our minds",
+      post4_desc: "Cabin vs cargo, country requirements, documentation and everything you need to know before flying with your dog.",
+      post4_date: "🗓️ Nov 2024",
+      post4_loc: "✈️ Air travel",
+      post5_cat: "House Sitting",
+      post5_title: "How to create a house sitter profile that gets requests",
+      post5_desc: "Photos, references, cover letter and the mistakes almost everyone makes when starting out.",
+      post5_date: "🗓️ Oct 2024",
+      post5_loc: "📋 Guide",
+      post6_cat: "Destinations",
+      post6_title: "The 5 most pet-friendly countries in Europe for digital nomads",
+      post6_desc: "Based on our experience traveling with Nina: bureaucracy, vet costs, and quality of life for dogs.",
+      post6_date: "🗓️ Sep 2024",
+      post6_loc: "📍 Europe",
+      read_more: "Read more →",
+      nina_label: "The star",
+      nina_title: "Meet <em>Nina</em>",
+      nina_desc: "Nina is not just our dog — she is our compass, our reason to explore unknown parks, our perfect excuse to talk to strangers and the reason we've discovered the most beautiful and unexpected corners of every city. Where we go, she goes.",
+      nina_fact1: "countries explored",
+      nina_fact2: "flights completed",
+      nina_fact3: "temporary homes",
+      nina_fact4: "good girl",
+      nl_label: "Join the family",
+      nl_title: "Ready for an <em>adventure</em>?",
+      nl_desc: "Get our stories, guides and house sitting tips straight to your inbox. No spam, just adventures.",
+      nl_placeholder: "your@email.com",
+      nl_btn: "Sign me up! 🐾",
+      footer_sub: "Two humans, one dog and the whole world to explore 🌍",
+      footer_copy: "© 2025 Nina's & Family Adventure · Made with ❤️ and lots of adventures",
+      map_cat_house: "House Sit",
+      map_cat_dest: "Destination",
+      map_cat_nina: "With Nina",
+    },
+    fr: {
+      nav_blog: "Blog",
+      nav_categorias: "Catégories",
+      nav_mapa: "Carte",
+      nav_contacto: "Contact",
+      hero_tag: "✈️ Nomades Numériques · House Sitters · Aventuriers",
+      hero_sub: "Deux humains, une chienne et le monde entier à explorer",
+      hero_desc: "Nous vivons en voyageant, en travaillant depuis n'importe quel coin de la planète et en faisant du house sitting avec Nina comme copilote à quatre pattes. Voici notre histoire.",
+      pill_house: "🏡 House Sitting",
+      pill_nomads: "💻 Nomades Numériques",
+      pill_pet: "🐕 Pet Friendly",
+      pill_couple: "❤️ En Couple",
+      hero_cta: "Lire nos aventures →",
+      stat1_label: "Pays visités",
+      stat2_label: "House sits réalisés",
+      stat3_label: "Chienne aventurière 🐾",
+      stat4_label: "Histoires à raconter",
+      map_label: "Notre parcours",
+      map_title: "La carte de <em>nos aventures</em>",
+      legend_house: "House Sit",
+      legend_dest: "Destination visitée",
+      legend_nina: "Aventure avec Nina",
+      cat_label: "Explorer",
+      cat_title: "Nos <em>catégories</em>",
+      cat1_title: "House Sitting",
+      cat1_desc: "Comment vivre gratuitement (ou presque) autour du monde en gardant des maisons et des animaux.",
+      cat1_count: "15 articles",
+      cat2_title: "Destinations",
+      cat2_desc: "Guides, conseils et secrets de chaque endroit que nous avons temporairement appelé maison.",
+      cat2_count: "28 articles",
+      cat3_title: "Vie de Nomade Numérique",
+      cat3_desc: "Travail à distance, outils, budgets et la réalité de vivre en voyageant.",
+      cat3_count: "12 articles",
+      cat4_title: "Voyager avec des Animaux",
+      cat4_desc: "Tout ce que vous devez savoir pour voyager avec votre chien sans drames ni surprises.",
+      cat4_count: "10 articles",
+      posts_label: "Les plus récents",
+      posts_title: "Dernières <em>aventures</em>",
+      post1_cat: "House Sitting",
+      post1_title: "Notre premier house sit au Portugal : ce que personne ne vous dit",
+      post1_desc: "Un appartement à Lisbonne, deux chats et tellement de leçons apprises lors de notre première expérience en tant que house sitters.",
+      post1_date: "🗓️ Mars 2025",
+      post1_loc: "📍 Lisbonne",
+      post2_cat: "Destinations",
+      post2_title: "Medellín avec un chien : guide complet pour les nomades pet-friendly",
+      post2_desc: "Parcs, cafés, transports et quartiers — tout ce qu'il faut pour vivre à Medellín avec votre compagnon à quatre pattes.",
+      post2_date: "🗓️ Janvier 2025",
+      post2_loc: "📍 Medellín",
+      post3_cat: "Nomade Numérique",
+      post3_title: "Combien nous avons dépensé en 6 mois de voyage en couple (chien inclus)",
+      post3_desc: "Budget réel, ventilation par pays et les astuces pour étirer chaque euro sans sacrifier la qualité de vie.",
+      post3_date: "🗓️ Déc 2024",
+      post3_loc: "💰 Finances",
+      post4_cat: "Avec Nina",
+      post4_title: "Comment nous voyageons en avion avec Nina sans perdre la tête",
+      post4_desc: "Cabine vs soute, exigences par pays, documentation et tout ce que vous devez savoir avant de voyager en avion avec votre chien.",
+      post4_date: "🗓️ Nov 2024",
+      post4_loc: "✈️ Voyage aérien",
+      post5_cat: "House Sitting",
+      post5_title: "Comment créer un profil de house sitter qui obtient des demandes",
+      post5_desc: "Photos, références, lettre de motivation et les erreurs que presque tout le monde fait en commençant.",
+      post5_date: "🗓️ Oct 2024",
+      post5_loc: "📋 Guide",
+      post6_cat: "Destinations",
+      post6_title: "Les 5 pays les plus pet-friendly d'Europe pour les nomades numériques",
+      post6_desc: "Basé sur notre expérience de voyage avec Nina : bureaucratie, frais vétérinaires et qualité de vie pour les chiens.",
+      post6_date: "🗓️ Sep 2024",
+      post6_loc: "📍 Europe",
+      read_more: "Lire la suite →",
+      nina_label: "La vedette",
+      nina_title: "Rencontrez <em>Nina</em>",
+      nina_desc: "Nina n'est pas seulement notre chienne — c'est notre boussole, notre raison d'explorer des parcs inconnus, notre excuse parfaite pour parler à des inconnus et la raison pour laquelle nous avons découvert les coins les plus beaux et inattendus de chaque ville. Là où nous allons, elle va.",
+      nina_fact1: "pays parcourus",
+      nina_fact2: "vols effectués",
+      nina_fact3: "maisons temporaires",
+      nina_fact4: "bonne fille",
+      nl_label: "Rejoignez la famille",
+      nl_title: "Prêt pour l'<em>aventure</em>&nbsp;?",
+      nl_desc: "Recevez nos histoires, guides et conseils de house sitting directement dans votre boîte mail. Pas de spam, juste des aventures.",
+      nl_placeholder: "votre@email.com",
+      nl_btn: "Je m'inscris ! 🐾",
+      footer_sub: "Deux humains, une chienne et le monde entier à explorer 🌍",
+      footer_copy: "© 2025 Nina's & Family Adventure · Fait avec ❤️ et beaucoup d'aventures",
+      map_cat_house: "House Sit",
+      map_cat_dest: "Destination",
+      map_cat_nina: "Avec Nina",
+    }
+  };
+
+  let currentLang = localStorage.getItem('lang') || 'es';
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // Plain text
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key] !== undefined) {
+        el.textContent = translations[lang][key];
+      }
+    });
+
+    // HTML content (for em tags)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (translations[lang][key] !== undefined) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
+
+    // Placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (translations[lang][key] !== undefined) {
+        el.placeholder = translations[lang][key];
+      }
+    });
+
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    // Refresh map popups
+    refreshMapMarkers(lang);
+
+    localStorage.setItem('lang', lang);
+  }
+
+  /* ─────────────────────────────────────────
+     MAP
+  ───────────────────────────────────────── */
   const places = [
-    { name: "Lisboa", country: "Portugal", lat: 38.717, lng: -9.139, type: "house", emoji: "🏡", date: "Mar 2025", note: "Nuestro primer house sit — dos gatos y una ciudad increíble" },
-    { name: "Medellín", country: "Colombia", lat: 6.244, lng: -75.581, type: "dest", emoji: "🌿", date: "Ene 2025", note: "La ciudad de la eterna primavera, perfecta con perros" },
-    { name: "Barcelona", country: "España", lat: 41.385, lng: 2.173, type: "nina", emoji: "🐾", date: "Ago 2024", note: "Nina conquistó las playas y los parques" },
-    { name: "Ámsterdam", country: "Países Bajos", lat: 52.370, lng: 4.895, type: "dest", emoji: "🚲", date: "Jun 2024", note: "Una ciudad sorprendentemente pet-friendly" },
-    { name: "Tulum", country: "México", lat: 20.211, lng: -87.465, type: "nina", emoji: "🌴", date: "Feb 2024", note: "Nina en la playa por primera vez — caos total (y mucho amor)" },
-    { name: "Porto", country: "Portugal", lat: 41.157, lng: -8.629, type: "house", emoji: "🏡", date: "Dic 2023", note: "House sit de dos semanas con un golden retriever" },
-    { name: "Berlín", country: "Alemania", lat: 52.520, lng: 13.405, type: "dest", emoji: "🏙️", date: "Oct 2023", note: "El paraíso para perros — parques por todos lados" },
-    { name: "Bali", country: "Indonesia", lat: -8.409, lng: 115.189, type: "nina", emoji: "🌺", date: "May 2023", note: "Nuestro primer destino lejano con Nina" },
-    { name: "Buenos Aires", country: "Argentina", lat: -34.603, lng: -58.381, type: "dest", emoji: "🥩", date: "Mar 2023", note: "El asado, los parques y la mejor veterinaria del viaje" },
-    { name: "Chiang Mai", country: "Tailandia", lat: 18.788, lng: 98.985, type: "house", emoji: "🏡", date: "Ene 2023", note: "House sit en una villa rodeada de montañas" },
-    { name: "Roma", country: "Italia", lat: 41.902, lng: 12.496, type: "dest", emoji: "🏛️", date: "Sep 2022", note: "Descubrir que casi todos los restaurantes admiten perros" },
-    { name: "Ciudad de México", country: "México", lat: 19.433, lng: -99.133, type: "nina", emoji: "🌮", date: "Jul 2022", note: "CDMX con Nina: sorpresas, parques y mucha comida" },
+    { name: "Lisboa",        country: "Portugal",      lat: 38.717, lng:  -9.139, type: "house", emoji: "🏡", date: "Mar 2025",
+      notes: { es: "Nuestro primer house sit — dos gatos y una ciudad increíble", en: "Our first house sit — two cats and an incredible city", fr: "Notre premier house sit — deux chats et une ville incroyable" } },
+    { name: "Medellín",      country: "Colombia",      lat:  6.244, lng: -75.581, type: "dest",  emoji: "🌿", date: "Ene 2025",
+      notes: { es: "La ciudad de la eterna primavera, perfecta con perros", en: "The city of eternal spring, perfect with dogs", fr: "La ville du printemps éternel, parfaite avec les chiens" } },
+    { name: "Barcelona",     country: "España",        lat: 41.385, lng:   2.173, type: "nina",  emoji: "🐾", date: "Ago 2024",
+      notes: { es: "Nina conquistó las playas y los parques", en: "Nina conquered the beaches and parks", fr: "Nina a conquis les plages et les parcs" } },
+    { name: "Ámsterdam",     country: "Países Bajos",  lat: 52.370, lng:   4.895, type: "dest",  emoji: "🚲", date: "Jun 2024",
+      notes: { es: "Una ciudad sorprendentemente pet-friendly", en: "A surprisingly pet-friendly city", fr: "Une ville étonnamment pet-friendly" } },
+    { name: "Tulum",         country: "México",        lat: 20.211, lng: -87.465, type: "nina",  emoji: "🌴", date: "Feb 2024",
+      notes: { es: "Nina en la playa por primera vez — caos total (y mucho amor)", en: "Nina at the beach for the first time — total chaos (and lots of love)", fr: "Nina à la plage pour la première fois — chaos total (et beaucoup d'amour)" } },
+    { name: "Porto",         country: "Portugal",      lat: 41.157, lng:  -8.629, type: "house", emoji: "🏡", date: "Dic 2023",
+      notes: { es: "House sit de dos semanas con un golden retriever", en: "Two-week house sit with a golden retriever", fr: "House sit de deux semaines avec un golden retriever" } },
+    { name: "Berlín",        country: "Alemania",      lat: 52.520, lng:  13.405, type: "dest",  emoji: "🏙️", date: "Oct 2023",
+      notes: { es: "El paraíso para perros — parques por todos lados", en: "Paradise for dogs — parks everywhere", fr: "Le paradis pour les chiens — des parcs partout" } },
+    { name: "Bali",          country: "Indonesia",     lat: -8.409, lng: 115.189, type: "nina",  emoji: "🌺", date: "May 2023",
+      notes: { es: "Nuestro primer destino lejano con Nina", en: "Our first distant destination with Nina", fr: "Notre première destination lointaine avec Nina" } },
+    { name: "Buenos Aires",  country: "Argentina",     lat: -34.603,lng: -58.381, type: "dest",  emoji: "🥩", date: "Mar 2023",
+      notes: { es: "El asado, los parques y la mejor veterinaria del viaje", en: "The barbecue, the parks and the best vet of the trip", fr: "Le barbecue, les parcs et le meilleur vétérinaire du voyage" } },
+    { name: "Chiang Mai",    country: "Tailandia",     lat: 18.788, lng:  98.985, type: "house", emoji: "🏡", date: "Ene 2023",
+      notes: { es: "House sit en una villa rodeada de montañas", en: "House sit in a villa surrounded by mountains", fr: "House sit dans une villa entourée de montagnes" } },
+    { name: "Roma",          country: "Italia",        lat: 41.902, lng:  12.496, type: "dest",  emoji: "🏛️", date: "Sep 2022",
+      notes: { es: "Descubrir que casi todos los restaurantes admiten perros", en: "Discovering that almost all restaurants welcome dogs", fr: "Découvrir que presque tous les restaurants acceptent les chiens" } },
+    { name: "Ciudad de México", country: "México",     lat: 19.433, lng: -99.133, type: "nina",  emoji: "🌮", date: "Jul 2022",
+      notes: { es: "CDMX con Nina: sorpresas, parques y mucha comida", en: "CDMX with Nina: surprises, parks and lots of food", fr: "CDMX avec Nina : surprises, parcs et beaucoup de nourriture" } },
   ];
 
-  const colors = {
-    house: "#C4613A",
-    dest:  "#2A8C7A",
-    nina:  "#2D5A3D",
-  };
-
-  const catLabels = {
-    house: "House Sit",
-    dest:  "Destino",
-    nina:  "Con Nina",
-  };
+  const colors = { house: "#C4613A", dest: "#2A8C7A", nina: "#2D5A3D" };
 
   const map = L.map("travel-map", {
-    center: [25, 10],
-    zoom: 2,
-    minZoom: 1,
-    maxZoom: 12,
-    scrollWheelZoom: false,
+    center: [25, 10], zoom: 2, minZoom: 1, maxZoom: 12, scrollWheelZoom: false,
   });
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -862,53 +1201,47 @@
     maxZoom: 18,
   }).addTo(map);
 
-  // Enable scroll zoom on click inside map
   map.once("focus", () => map.scrollWheelZoom.enable());
   document.getElementById("travel-map").addEventListener("click", () => map.scrollWheelZoom.enable());
 
-  places.forEach(p => {
-    const color = colors[p.type];
-    const markerHtml = `
-      <div style="
-        width:32px;height:32px;
-        background:${color};
-        border:3px solid white;
-        border-radius:50%;
-        box-shadow:0 3px 10px rgba(0,0,0,0.25);
-        display:flex;align-items:center;justify-content:center;
-        font-size:14px;
-        cursor:pointer;
-        transition:transform 0.2s;
-      ">${p.emoji}</div>
-    `;
+  let markersLayer = L.layerGroup().addTo(map);
 
-    const icon = L.divIcon({
-      html: markerHtml,
-      className: "",
-      iconSize: [32, 32],
-      iconAnchor: [16, 16],
-      popupAnchor: [0, -18],
+  function refreshMapMarkers(lang) {
+    markersLayer.clearLayers();
+    const t = translations[lang];
+    const catLabels = { house: t.map_cat_house, dest: t.map_cat_dest, nina: t.map_cat_nina };
+
+    places.forEach(p => {
+      const color = colors[p.type];
+      const markerHtml = `
+        <div style="
+          width:32px;height:32px;
+          background:${color};
+          border:3px solid white;
+          border-radius:50%;
+          box-shadow:0 3px 10px rgba(0,0,0,0.25);
+          display:flex;align-items:center;justify-content:center;
+          font-size:14px;cursor:pointer;
+        ">${p.emoji}</div>`;
+
+      const icon = L.divIcon({ html: markerHtml, className: "", iconSize: [32,32], iconAnchor: [16,16], popupAnchor: [0,-18] });
+
+      const catBg = { house: "rgba(196,97,58,0.12)", dest: "rgba(42,140,122,0.12)", nina: "rgba(45,90,61,0.12)" }[p.type];
+
+      const popup = `
+        <div style="min-width:170px">
+          <div class="map-popup-title">${p.emoji} ${p.name}</div>
+          <div class="map-popup-sub">📍 ${p.country} · 🗓️ ${p.date}</div>
+          <span class="map-popup-cat" style="background:${catBg};color:${color};">${catLabels[p.type]}</span>
+          <p style="margin-top:0.5rem;font-size:0.82rem;color:#6B5040;line-height:1.5;">${p.notes[lang]}</p>
+        </div>`;
+
+      L.marker([p.lat, p.lng], { icon }).addTo(markersLayer).bindPopup(popup, { maxWidth: 240 });
     });
+  }
 
-    const catBg = {
-      house: "rgba(196,97,58,0.12)",
-      dest:  "rgba(42,140,122,0.12)",
-      nina:  "rgba(45,90,61,0.12)",
-    }[p.type];
-
-    const popup = `
-      <div style="min-width:170px">
-        <div class="map-popup-title">${p.emoji} ${p.name}</div>
-        <div class="map-popup-sub">📍 ${p.country} · 🗓️ ${p.date}</div>
-        <span class="map-popup-cat" style="background:${catBg};color:${color};">${catLabels[p.type]}</span>
-        <p style="margin-top:0.5rem;font-size:0.82rem;color:#6B5040;line-height:1.5;">${p.note}</p>
-      </div>
-    `;
-
-    L.marker([p.lat, p.lng], { icon })
-      .addTo(map)
-      .bindPopup(popup, { maxWidth: 240 });
-  });
+  // Init with saved or default language
+  setLanguage(currentLang);
 </script>
 </body>
 </html>
