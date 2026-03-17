@@ -465,30 +465,82 @@
   }
 
   /* ── FOOTER ── */
-  footer {
-    background: var(--dark); color: rgba(255,255,255,0.7);
-    text-align: center; padding: 3rem 2rem;
+  footer { background: #1c1c1c; color: rgba(255,255,255,0.75); }
+  .footer-main {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
   .footer-logo {
     font-family: 'Pacifico', cursive;
-    font-size: 1.8rem;
+    font-size: 1.5rem; line-height: 1.25;
     color: var(--terracotta);
-    display: block; margin-bottom: 0.5rem;
+    display: block; margin-bottom: 1rem;
   }
   .footer-logo span { color: var(--tropical-teal-light); }
-  footer p { font-size: 0.9rem; margin-bottom: 1.5rem; }
-  .footer-social {
-    display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem;
+  .footer-tagline {
+    font-size: 0.9rem; line-height: 1.7;
+    opacity: 0.65; margin-bottom: 1.2rem;
   }
-  .social-btn {
-    width: 42px; height: 42px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; cursor: pointer; transition: background 0.3s;
+  .footer-presskit {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
     text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 2px;
+    transition: color 0.2s;
   }
-  .social-btn:hover { background: var(--terracotta); }
-  .footer-copy { font-size: 0.8rem; opacity: 0.45; }
+  .footer-presskit:hover { color: white; }
+  .footer-col-social { text-align: center; }
+  .footer-search {
+    display: flex;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 1.8rem;
+  }
+  .footer-search input {
+    flex: 1; border: none; background: transparent;
+    padding: 0.75rem 1.2rem; font-size: 0.95rem;
+    outline: none; color: #333;
+    font-family: 'Lato', sans-serif;
+  }
+  .footer-search button {
+    background: var(--terracotta); border: none;
+    padding: 0 1.2rem; cursor: pointer; color: white;
+    font-size: 1rem; transition: background 0.2s;
+  }
+  .footer-search button:hover { background: var(--rust); }
+  .footer-social-icons {
+    display: flex; gap: 1rem; justify-content: center;
+  }
+  .footer-social-icons a {
+    width: 46px; height: 46px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .footer-social-icons a:hover { background: var(--terracotta); transform: scale(1.1); }
+  .footer-col-recursos h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: white; font-weight: 700;
+    margin-bottom: 1.2rem;
+  }
+  .footer-recursos-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+  .footer-recursos-list a {
+    font-size: 0.88rem; color: rgba(255,255,255,0.6);
+    text-decoration: none; transition: color 0.2s; line-height: 1.4;
+  }
+  .footer-recursos-list a:hover { color: var(--mango-light); }
+  .footer-bottom {
+    text-align: center; padding: 1.4rem 2rem;
+    font-size: 0.78rem; opacity: 0.38;
+  }
 
   /* ── MAP ── */
   .map-section {
@@ -559,17 +611,106 @@
     margin-top: 0.4rem;
   }
 
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer;
+    padding: 6px; z-index: 200; margin-left: 0.4rem;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--warm-brown); border-radius: 2px; transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* ── AFFILIATES ── */
+  .affiliates-section {
+    background: linear-gradient(135deg, var(--warm-brown) 0%, var(--jungle) 100%);
+    color: white; text-align: center; padding: 5rem 2rem;
+  }
+  .affiliates-section .section-label { color: var(--mango-light); }
+  .affiliates-section .section-title { color: white; }
+  .affiliates-section .section-title em { color: var(--mango-light); font-style: italic; }
+  .affiliates-section .section-line { background: var(--mango-light); }
+  .affiliates-intro {
+    max-width: 620px; margin: 0 auto 3rem;
+    opacity: 0.85; font-size: 1rem; line-height: 1.75;
+  }
+  .affiliates-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+  }
+  .aff-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px; padding: 2rem 1.5rem;
+    text-align: left; transition: transform 0.3s, background 0.3s;
+  }
+  .aff-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.14); }
+  .aff-badge {
+    display: inline-block; font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: var(--mango); color: white;
+    padding: 0.25rem 0.7rem; border-radius: 20px; margin-bottom: 1rem;
+  }
+  .aff-badge.badge-teal { background: var(--tropical-teal); }
+  .aff-badge.badge-rust { background: var(--rust); }
+  .aff-icon { font-size: 2.2rem; margin-bottom: 0.8rem; display: block; }
+  .aff-card h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.2rem;
+    color: white; margin-bottom: 0.5rem;
+  }
+  .aff-card p { font-size: 0.88rem; opacity: 0.8; line-height: 1.65; margin-bottom: 1.3rem; }
+  .aff-cta {
+    display: inline-block; background: var(--mango); color: white;
+    padding: 0.55rem 1.3rem; border-radius: 30px; font-size: 0.83rem;
+    font-weight: 700; text-decoration: none; letter-spacing: 0.05em;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .aff-cta:hover { background: var(--mango-light); transform: scale(1.04); }
+  .aff-disclaimer { text-align: center; margin-top: 2.5rem; font-size: 0.75rem; opacity: 0.5; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    nav { padding: 0.8rem 1.5rem; }
-    .nav-links { gap: 1rem; }
-    .nav-links a { font-size: 0.75rem; }
-    .about-strip { gap: 2rem; }
+    nav { padding: 0.8rem 1.2rem; }
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none; position: fixed;
+      top: 62px; left: 0; right: 0;
+      background: rgba(250,244,234,0.98); backdrop-filter: blur(10px);
+      flex-direction: column; align-items: center;
+      padding: 2rem 1rem; gap: 1.5rem;
+      border-bottom: 2px solid var(--sand);
+      z-index: 99; box-shadow: 0 8px 20px rgba(44,26,14,0.12);
+    }
+    .nav-links.mobile-open { display: flex !important; }
+    .nav-links a { font-size: 1rem; }
+    .about-strip { gap: 2rem; padding: 2.5rem 1.2rem; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .affiliates-grid { grid-template-columns: 1fr 1fr; }
+    #travel-map { height: 320px !important; }
     .newsletter-form { flex-direction: column; align-items: center; }
     .newsletter-form input { width: 100%; }
+    section { padding: 3.5rem 1.2rem; }
+    .footer-main { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
+    .footer-col-social { text-align: left; }
+    .footer-social-icons { justify-content: flex-start; }
   }
   @media (max-width: 480px) {
-    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-sub { font-size: 1.05rem; }
+    .cat-grid { grid-template-columns: 1fr; }
+    .affiliates-grid { grid-template-columns: 1fr; }
+    .about-strip { flex-direction: column; gap: 1.5rem; }
+    .nina-facts { flex-direction: column; align-items: center; }
+    #travel-map { height: 260px !important; }
+    section { padding: 3rem 1rem; }
+    .section-title { font-size: 1.8rem; }
+    .hero-pills { gap: 0.5rem; }
+    .pill { font-size: 0.75rem; padding: 0.4rem 0.9rem; }
   }
 </style>
 </head>
@@ -578,17 +719,23 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Nina's <span>&</span> Family</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="#posts" data-i18n="nav_blog">Blog</a></li>
     <li><a href="#categorias" data-i18n="nav_categorias">Categorías</a></li>
     <li><a href="#mapa" data-i18n="nav_mapa">Mapa</a></li>
     <li><a href="#nina">Nina</a></li>
+    <li><a href="#recursos" data-i18n="nav_recursos">Recursos</a></li>
     <li><a href="#newsletter" data-i18n="nav_contacto">Contacto</a></li>
   </ul>
-  <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
-    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-    <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+  <div style="display:flex;align-items:center;gap:0.3rem;">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
+      <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+      <button class="lang-btn" onclick="setLanguage('fr')">FR</button>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -822,6 +969,61 @@
   </div>
 </section>
 
+<!-- AFFILIATES -->
+<section class="affiliates-section" id="recursos">
+  <div class="section-header">
+    <span class="section-label" data-i18n="aff_label">Nuestros favoritos</span>
+    <h2 class="section-title" data-i18n-html="aff_title">Herramientas que <em>usamos de verdad</em></h2>
+    <div class="section-line" style="background:var(--mango-light);"></div>
+  </div>
+  <p class="affiliates-intro" data-i18n="aff_intro">No recomendamos nada que no hayamos probado nosotros mismos. Estas son las herramientas que hacen posible nuestra vida nómada — algunas tienen descuentos especiales para ti.</p>
+  <div class="affiliates-grid">
+    <div class="aff-card">
+      <span class="aff-badge badge-teal" data-i18n="aff1_badge">⭐ Nuestra #1</span>
+      <span class="aff-icon">🏡</span>
+      <h3>TrustedHousesitters</h3>
+      <p data-i18n="aff1_desc">La plataforma que cambió nuestra vida. Más de 30 casas gratis en todo el mundo — solo cuidas a sus mascotas. El mejor ROI que hemos tenido jamás.</p>
+      <a href="#" class="aff-cta" target="_blank" rel="noopener noreferrer" data-i18n="aff_btn">Descubrir →</a>
+    </div>
+    <div class="aff-card">
+      <span class="aff-badge" data-i18n="aff2_badge">🛡️ Imprescindible</span>
+      <span class="aff-icon">🌍</span>
+      <h3>SafetyWing</h3>
+      <p data-i18n="aff2_desc">El seguro de viaje más flexible para nómadas. Cobertura global por ~$40/mes, sin contratos ni dramas. Lo llevamos desde el primer día.</p>
+      <a href="#" class="aff-cta" target="_blank" rel="noopener noreferrer" data-i18n="aff_btn">Descubrir →</a>
+    </div>
+    <div class="aff-card">
+      <span class="aff-badge badge-teal" data-i18n="aff3_badge">💳 0 comisiones</span>
+      <span class="aff-icon">💳</span>
+      <h3>Wise</h3>
+      <p data-i18n="aff3_desc">La tarjeta que usamos en 12 países sin pagar comisiones. Tipo de cambio real, sin sorpresas. Nos ha ahorrado cientos de euros en el camino.</p>
+      <a href="#" class="aff-cta" target="_blank" rel="noopener noreferrer" data-i18n="aff_btn">Descubrir →</a>
+    </div>
+    <div class="aff-card">
+      <span class="aff-badge badge-rust" data-i18n="aff4_badge">🏨 Alojamiento</span>
+      <span class="aff-icon">🛏️</span>
+      <h3>Booking.com</h3>
+      <p data-i18n="aff4_desc">Cuando no tenemos house sit, aquí reservamos. Filtros pet-friendly, cancelación gratuita y cashback en cada reserva. Confianza total.</p>
+      <a href="#" class="aff-cta" target="_blank" rel="noopener noreferrer" data-i18n="aff_btn">Descubrir →</a>
+    </div>
+    <div class="aff-card">
+      <span class="aff-badge" data-i18n="aff5_badge">✈️ Vuelos baratos</span>
+      <span class="aff-icon">✈️</span>
+      <h3>Skyscanner</h3>
+      <p data-i18n="aff5_desc">Nuestro buscador de vuelos favorito. La función "mes más barato" nos ayudó a decidir destinos enteros. Así encontramos las mejores tarifas.</p>
+      <a href="#" class="aff-cta" target="_blank" rel="noopener noreferrer" data-i18n="aff_btn">Descubrir →</a>
+    </div>
+    <div class="aff-card">
+      <span class="aff-badge badge-rust" data-i18n="aff6_badge">🎒 Nuestro equipo</span>
+      <span class="aff-icon">🎒</span>
+      <h3 data-i18n="aff6_title">Nuestra mochila de viaje</h3>
+      <p data-i18n="aff6_desc">Todo lo que metemos en nuestra mochila — probado y aprobado por Nina. Gadgets de trabajo remoto y accesorios esenciales para viajar con perro.</p>
+      <a href="#" class="aff-cta" target="_blank" rel="noopener noreferrer" data-i18n="aff_btn">Descubrir →</a>
+    </div>
+  </div>
+  <p class="aff-disclaimer" data-i18n="aff_disclaimer">* Algunos enlaces son de afiliado. Si compras a través de ellos, recibimos una pequeña comisión sin coste adicional para ti. ¡Gracias por apoyarnos! 🐾</p>
+</section>
+
 <!-- NEWSLETTER -->
 <section class="newsletter-section" id="newsletter">
   <div class="section-header">
@@ -838,15 +1040,42 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">Nina's <span>&</span> Family Adventure</span>
-  <p data-i18n="footer_sub">Dos humanos, una perra y el mundo entero por explorar 🌍</p>
-  <div class="footer-social">
-    <a href="#" class="social-btn">📸</a>
-    <a href="#" class="social-btn">▶️</a>
-    <a href="#" class="social-btn">🐦</a>
-    <a href="#" class="social-btn">📌</a>
+  <div class="footer-main">
+    <!-- Columna marca -->
+    <div class="footer-col-brand">
+      <span class="footer-logo">Nina's <span>&</span><br>Family</span>
+      <p class="footer-tagline" data-i18n="footer_tagline">Dos humanos, una perra y el mundo entero por explorar. Nómadas digitales, house sitters y aventureros de corazón.</p>
+      <a href="#" class="footer-presskit" data-i18n="footer_presskit">Press kit</a>
+    </div>
+    <!-- Columna social -->
+    <div class="footer-col-social">
+      <div class="footer-search">
+        <input type="text" data-i18n-placeholder="footer_search_ph" placeholder="Buscar...">
+        <button type="button">🔍</button>
+      </div>
+      <div class="footer-social-icons">
+        <a href="#" title="Facebook">📘</a>
+        <a href="#" title="X / Twitter">🐦</a>
+        <a href="#" title="YouTube">▶️</a>
+        <a href="#" title="Instagram">📸</a>
+        <a href="#" title="TikTok">🎵</a>
+      </div>
+    </div>
+    <!-- Columna recursos -->
+    <div class="footer-col-recursos">
+      <h4 data-i18n="footer_rec_title">Recursos</h4>
+      <ul class="footer-recursos-list">
+        <li><a href="#" data-i18n="footer_rec1">🏡 TrustedHousesitters — Casas gratis en el mundo</a></li>
+        <li><a href="#" data-i18n="footer_rec2">✈️ Para viajar más barato</a></li>
+        <li><a href="#" data-i18n="footer_rec3">💻 Para trabajar y viajar por el mundo</a></li>
+        <li><a href="#" data-i18n="footer_rec4">🛡️ Seguro de viaje para nómadas</a></li>
+        <li><a href="#" data-i18n="footer_rec5">💳 Tarjeta sin comisiones en el extranjero</a></li>
+      </ul>
+    </div>
   </div>
-  <p class="footer-copy" data-i18n="footer_copy">© 2025 Nina's & Family Adventure · Hecho con ❤️ y muchas aventuras</p>
+  <div class="footer-bottom">
+    <p data-i18n="footer_copy">© 2025 Nina's & Family Adventure · Hecho con ❤️ y muchas aventuras</p>
+  </div>
 </footer>
 
 
@@ -942,6 +1171,34 @@
       map_cat_house: "House Sit",
       map_cat_dest: "Destino",
       map_cat_nina: "Con Nina",
+      nav_recursos: "Recursos",
+      aff_label: "Nuestros favoritos",
+      aff_title: "Herramientas que <em>usamos de verdad</em>",
+      aff_intro: "No recomendamos nada que no hayamos probado nosotros mismos. Estas son las herramientas que hacen posible nuestra vida nómada — algunas tienen descuentos especiales para ti.",
+      aff_btn: "Descubrir →",
+      aff_disclaimer: "* Algunos enlaces son de afiliado. Si compras a través de ellos, recibimos una pequeña comisión sin coste adicional para ti. ¡Gracias por apoyarnos! 🐾",
+      aff1_badge: "⭐ Nuestra #1",
+      aff1_desc: "La plataforma que cambió nuestra vida. Más de 30 casas gratis en todo el mundo — solo cuidas a sus mascotas. El mejor ROI que hemos tenido jamás.",
+      aff2_badge: "🛡️ Imprescindible",
+      aff2_desc: "El seguro de viaje más flexible para nómadas. Cobertura global por ~$40/mes, sin contratos ni dramas. Lo llevamos desde el primer día.",
+      aff3_badge: "💳 0 comisiones",
+      aff3_desc: "La tarjeta que usamos en 12 países sin pagar comisiones. Tipo de cambio real, sin sorpresas. Nos ha ahorrado cientos de euros en el camino.",
+      aff4_badge: "🏨 Alojamiento",
+      aff4_desc: "Cuando no tenemos house sit, aquí reservamos. Filtros pet-friendly, cancelación gratuita y cashback en cada reserva. Confianza total.",
+      aff5_badge: "✈️ Vuelos baratos",
+      aff5_desc: "Nuestro buscador de vuelos favorito. La función \"mes más barato\" nos ayudó a decidir destinos enteros. Así encontramos las mejores tarifas.",
+      aff6_badge: "🎒 Nuestro equipo",
+      aff6_title: "Nuestra mochila de viaje",
+      aff6_desc: "Todo lo que metemos en nuestra mochila — probado y aprobado por Nina. Gadgets de trabajo remoto y accesorios esenciales para viajar con perro.",
+      footer_tagline: "Dos humanos, una perra y el mundo entero por explorar. Nómadas digitales, house sitters y aventureros de corazón.",
+      footer_presskit: "Press kit",
+      footer_search_ph: "Buscar...",
+      footer_rec_title: "Recursos",
+      footer_rec1: "🏡 TrustedHousesitters — Casas gratis en el mundo",
+      footer_rec2: "✈️ Para viajar más barato",
+      footer_rec3: "💻 Para trabajar y viajar por el mundo",
+      footer_rec4: "🛡️ Seguro de viaje para nómadas",
+      footer_rec5: "💳 Tarjeta sin comisiones en el extranjero",
     },
     en: {
       nav_blog: "Blog",
@@ -1029,6 +1286,34 @@
       map_cat_house: "House Sit",
       map_cat_dest: "Destination",
       map_cat_nina: "With Nina",
+      nav_recursos: "Resources",
+      aff_label: "Our favorites",
+      aff_title: "Tools we <em>actually use</em>",
+      aff_intro: "We never recommend anything we haven't tried ourselves. These are the tools that make our nomadic life possible — some have special discounts just for you.",
+      aff_btn: "Discover →",
+      aff_disclaimer: "* Some links are affiliate links. If you purchase through them, we earn a small commission at no extra cost to you. Thank you for supporting us! 🐾",
+      aff1_badge: "⭐ Our #1",
+      aff1_desc: "The platform that changed our life. Over 30 free homes around the world — you just look after their pets. Best investment we've ever made.",
+      aff2_badge: "🛡️ Essential",
+      aff2_desc: "The most flexible travel insurance for nomads. Global coverage for ~$40/month, no contracts or drama. We've had it from day one.",
+      aff3_badge: "💳 Zero fees",
+      aff3_desc: "The card we use in 12 countries without paying crazy fees. Real exchange rate, no surprises. It's saved us hundreds of euros along the way.",
+      aff4_badge: "🏨 Accommodation",
+      aff4_desc: "When we don't have a house sit, this is where we book. Pet-friendly filters, free cancellation and cashback on every booking. Total trust.",
+      aff5_badge: "✈️ Cheap flights",
+      aff5_desc: "Our favorite flight search engine. The \"cheapest month\" feature helped us choose entire destinations. This is how we find the best fares.",
+      aff6_badge: "🎒 Our gear",
+      aff6_title: "Our travel bag",
+      aff6_desc: "Everything we pack — tested and approved by Nina. Remote work gadgets and essential accessories for traveling with a dog.",
+      footer_tagline: "Two humans, one dog and the whole world to explore. Digital nomads, house sitters and adventurers at heart.",
+      footer_presskit: "Press kit",
+      footer_search_ph: "Search...",
+      footer_rec_title: "Resources",
+      footer_rec1: "🏡 TrustedHousesitters — Free homes worldwide",
+      footer_rec2: "✈️ To travel cheaper",
+      footer_rec3: "💻 To work and travel the world",
+      footer_rec4: "🛡️ Travel insurance for nomads",
+      footer_rec5: "💳 No-fee card abroad",
     },
     fr: {
       nav_blog: "Blog",
@@ -1116,6 +1401,34 @@
       map_cat_house: "House Sit",
       map_cat_dest: "Destination",
       map_cat_nina: "Avec Nina",
+      nav_recursos: "Ressources",
+      aff_label: "Nos favoris",
+      aff_title: "Les outils qu'on <em>utilise vraiment</em>",
+      aff_intro: "Nous ne recommandons jamais rien que nous n'avons pas testé nous-mêmes. Ce sont les outils qui rendent notre vie nomade possible — certains ont des réductions spéciales pour vous.",
+      aff_btn: "Découvrir →",
+      aff_disclaimer: "* Certains liens sont affiliés. Si vous achetez via ces liens, nous recevons une petite commission sans frais supplémentaires pour vous. Merci de nous soutenir ! 🐾",
+      aff1_badge: "⭐ Notre #1",
+      aff1_desc: "La plateforme qui a changé notre vie. Plus de 30 maisons gratuites dans le monde — il suffit de s'occuper de leurs animaux. Le meilleur investissement qu'on ait jamais fait.",
+      aff2_badge: "🛡️ Indispensable",
+      aff2_desc: "L'assurance voyage la plus flexible pour les nomades. Couverture mondiale pour ~40$/mois, sans contrat ni tracas. On l'a depuis le premier jour.",
+      aff3_badge: "💳 0 frais",
+      aff3_desc: "La carte qu'on utilise dans 12 pays sans payer de frais excessifs. Taux de change réel, sans surprises. Elle nous a économisé des centaines d'euros.",
+      aff4_badge: "🏨 Hébergement",
+      aff4_desc: "Quand on n'a pas de house sit, c'est ici qu'on réserve. Filtres pet-friendly, annulation gratuite et cashback sur chaque réservation. Confiance totale.",
+      aff5_badge: "✈️ Vols pas chers",
+      aff5_desc: "Notre moteur de recherche de vols préféré. La fonction \"mois le moins cher\" nous a aidé à choisir des destinations entières. C'est ainsi qu'on trouve les meilleures tarifs.",
+      aff6_badge: "🎒 Notre équipement",
+      aff6_title: "Notre sac de voyage",
+      aff6_desc: "Tout ce qu'on met dans notre sac — testé et approuvé par Nina. Gadgets de travail à distance et accessoires essentiels pour voyager avec un chien.",
+      footer_tagline: "Deux humains, une chienne et le monde entier à explorer. Nomades numériques, house sitters et aventuriers dans l'âme.",
+      footer_presskit: "Press kit",
+      footer_search_ph: "Rechercher...",
+      footer_rec_title: "Ressources",
+      footer_rec1: "🏡 TrustedHousesitters — Maisons gratuites dans le monde",
+      footer_rec2: "✈️ Pour voyager moins cher",
+      footer_rec3: "💻 Pour travailler et voyager dans le monde",
+      footer_rec4: "🛡️ Assurance voyage pour nomades",
+      footer_rec5: "💳 Carte sans frais à l'étranger",
     }
   };
 
@@ -1239,6 +1552,20 @@
       L.marker([p.lat, p.lng], { icon }).addTo(markersLayer).bindPopup(popup, { maxWidth: 240 });
     });
   }
+
+  // ── HAMBURGER ──
+  function toggleMenu() {
+    const links = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    links.classList.toggle('mobile-open');
+    btn.classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('nav-links').classList.remove('mobile-open');
+      document.getElementById('hamburger').classList.remove('open');
+    });
+  });
 
   // Init with saved or default language
   setLanguage(currentLang);
