@@ -538,8 +538,9 @@
   }
   .footer-recursos-list a:hover { color: var(--mango-light); }
   .footer-bottom {
-    text-align: center; padding: 1.4rem 2rem;
-    font-size: 0.78rem; opacity: 0.38;
+    text-align: center; padding: 1.5rem 2rem;
+    font-size: 0.85rem; color: rgba(255,255,255,0.75);
+    border-top: 1px solid rgba(255,255,255,0.08);
   }
 
   /* ── MAP ── */
@@ -609,6 +610,60 @@
     padding: 0.2rem 0.6rem;
     border-radius: 50px;
     margin-top: 0.4rem;
+  }
+
+  /* ── RESERVAS ── */
+  .reservas-section {
+    background: linear-gradient(135deg, #1E3A4A 0%, #2A6B8A 100%);
+    color: white; padding: 5rem 2rem; text-align: center;
+  }
+  .reservas-section .section-label { color: #7DD3F0; }
+  .reservas-section .section-title { color: white; }
+  .reservas-section .section-title em { color: #F7C548; font-style: italic; }
+  .reservas-section .section-line { background: #F7C548; }
+  .reservas-intro {
+    max-width: 640px; margin: 0 auto 1rem;
+    font-size: 1.05rem; line-height: 1.8; opacity: 0.9;
+  }
+  .reservas-gratis {
+    display: inline-block;
+    background: #F7C548; color: #1a1a1a;
+    font-weight: 900; font-size: 1.1rem;
+    padding: 0.5rem 1.8rem; border-radius: 50px;
+    margin: 1rem 0 2.5rem; letter-spacing: 0.05em;
+  }
+  .reservas-cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem; max-width: 960px; margin: 0 auto 3rem;
+  }
+  .reservas-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px; padding: 1.6rem 1.2rem;
+    text-align: left;
+  }
+  .reservas-card-icon { font-size: 2rem; margin-bottom: 0.7rem; display: block; }
+  .reservas-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: #F7C548; margin-bottom: 0.4rem;
+  }
+  .reservas-card p { font-size: 0.85rem; opacity: 0.85; line-height: 1.6; }
+  .reservas-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--terracotta), var(--rust));
+    color: white; text-decoration: none;
+    padding: 1.1rem 2.8rem; border-radius: 50px;
+    font-weight: 700; font-size: 1.05rem;
+    box-shadow: 0 6px 20px rgba(196,97,58,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    letter-spacing: 0.04em;
+  }
+  .reservas-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(196,97,58,0.5);
+  }
+  .reservas-nota {
+    margin-top: 1.5rem; font-size: 0.8rem; opacity: 0.55;
   }
 
   /* ── HAMBURGER ── */
@@ -690,6 +745,7 @@
     .about-strip { gap: 2rem; padding: 2.5rem 1.2rem; }
     .posts-grid { grid-template-columns: 1fr; }
     .affiliates-grid { grid-template-columns: 1fr 1fr; }
+    .reservas-cards { grid-template-columns: 1fr 1fr; }
     #travel-map { height: 320px !important; }
     .newsletter-form { flex-direction: column; align-items: center; }
     .newsletter-form input { width: 100%; }
@@ -704,6 +760,7 @@
     .hero-sub { font-size: 1.05rem; }
     .cat-grid { grid-template-columns: 1fr; }
     .affiliates-grid { grid-template-columns: 1fr; }
+    .reservas-cards { grid-template-columns: 1fr; }
     .about-strip { flex-direction: column; gap: 1.5rem; }
     .nina-facts { flex-direction: column; align-items: center; }
     #travel-map { height: 260px !important; }
@@ -725,6 +782,7 @@
     <li><a href="#mapa" data-i18n="nav_mapa">Mapa</a></li>
     <li><a href="#nina">Nina</a></li>
     <li><a href="#recursos" data-i18n="nav_recursos">Recursos</a></li>
+    <li><a href="#reservas" data-i18n="nav_reservas">Reservas</a></li>
     <li><a href="#newsletter" data-i18n="nav_contacto">Contacto</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:0.3rem;">
@@ -763,7 +821,7 @@
 <!-- STATS STRIP -->
 <div class="about-strip">
   <div class="about-stat">
-    <span class="number">12+</span>
+    <span class="number">40+</span>
     <span class="label" data-i18n="stat1_label">Países visitados</span>
   </div>
   <div class="about-stat">
@@ -950,20 +1008,20 @@
     </p>
     <div class="nina-facts">
       <div class="nina-fact">
-        <strong>🌍 12+</strong>
-        <span data-i18n="nina_fact1">países recorridos</span>
-      </div>
-      <div class="nina-fact">
-        <strong>✈️ 20+</strong>
-        <span data-i18n="nina_fact2">vuelos completados</span>
+        <strong>🌍 40+</strong>
+        <span data-i18n="nina_fact1">países conocidos</span>
       </div>
       <div class="nina-fact">
         <strong>🏡 30+</strong>
-        <span data-i18n="nina_fact3">hogares temporales</span>
+        <span data-i18n="nina_fact2">house sits completados</span>
       </div>
       <div class="nina-fact">
-        <strong>❤️ 100%</strong>
-        <span data-i18n="nina_fact4">buena chica</span>
+        <strong>💻 100%</strong>
+        <span data-i18n="nina_fact3">nómada digital</span>
+      </div>
+      <div class="nina-fact">
+        <strong>🐾 1</strong>
+        <span data-i18n="nina_fact4">perra copiloto</span>
       </div>
     </div>
   </div>
@@ -1024,6 +1082,51 @@
   <p class="aff-disclaimer" data-i18n="aff_disclaimer">* Algunos enlaces son de afiliado. Si compras a través de ellos, recibimos una pequeña comisión sin coste adicional para ti. ¡Gracias por apoyarnos! 🐾</p>
 </section>
 
+<!-- RESERVAS -->
+<section class="reservas-section" id="reservas">
+  <div class="section-header">
+    <span class="section-label" data-i18n="res_label">Planificación de viaje</span>
+    <h2 class="section-title" data-i18n-html="res_title">Te ayudo a <em>reservar tu viaje</em></h2>
+    <div class="section-line" style="background:#F7C548;"></div>
+  </div>
+  <p class="reservas-intro" data-i18n="res_intro">¿Quieres viajar pero no sabes por dónde empezar? Yo te ayudo a planificar y reservar tu viaje de principio a fin. La única condición: usar mis enlaces de afiliado (no te cuesta nada extra a ti).</p>
+  <div class="reservas-gratis" data-i18n="res_gratis">✨ Servicio 100% gratuito para ti ✨</div>
+  <div class="reservas-cards">
+    <div class="reservas-card">
+      <span class="reservas-card-icon">💰</span>
+      <h4 data-i18n="res_card1_title">Experta en viajar barato</h4>
+      <p data-i18n="res_card1_desc">He aprendido a viajar gastando muy poco — combinando house sitting, vuelos con alertas de precio, alojamientos alternativos y trucos de presupuesto que funcionan de verdad.</p>
+    </div>
+    <div class="reservas-card">
+      <span class="reservas-card-icon">🌍</span>
+      <h4 data-i18n="res_card2_title">40+ países vividos</h4>
+      <p data-i18n="res_card2_desc">No hablo de destinos de oídas. He estado en más de 40 países, he vivido en muchos de ellos y sé exactamente qué épocas, zonas y opciones dan más por menos dinero.</p>
+    </div>
+    <div class="reservas-card">
+      <span class="reservas-card-icon">🏡</span>
+      <h4 data-i18n="res_card3_title">30+ house sits</h4>
+      <p data-i18n="res_card3_desc">Si quieres explorar el house sitting para alojarte gratis, soy la persona adecuada. Te explico cómo funciona, cómo crear tu perfil y cómo conseguir tu primer sit.</p>
+    </div>
+    <div class="reservas-card">
+      <span class="reservas-card-icon">🔍</span>
+      <h4 data-i18n="res_card4_title">Busco las mejores ofertas</h4>
+      <p data-i18n="res_card4_desc">Comparo vuelos, alojamientos y seguros para encontrar la opción más económica sin renunciar a la calidad. Me encanta este proceso — y se me da muy bien.</p>
+    </div>
+    <div class="reservas-card">
+      <span class="reservas-card-icon">🐾</span>
+      <h4 data-i18n="res_card5_title">Viajes con mascotas</h4>
+      <p data-i18n="res_card5_desc">Si viajas con perro, tengo experiencia de primera mano. Documentación, vuelos, alojamientos pet-friendly y todo lo que necesitas saber para que tu mascota viaje sin estrés.</p>
+    </div>
+    <div class="reservas-card">
+      <span class="reservas-card-icon">📩</span>
+      <h4 data-i18n="res_card6_title">Respuesta rápida</h4>
+      <p data-i18n="res_card6_desc">Cuéntame tu destino, fechas y presupuesto y te preparo opciones concretas. Sin formularios complicados, sin esperas eternas — directamente conmigo.</p>
+    </div>
+  </div>
+  <a href="mailto:TU@EMAIL.COM" class="reservas-cta" data-i18n="res_cta">Escríbeme y empezamos →</a>
+  <p class="reservas-nota" data-i18n="res_nota">* Reservo a través de mis enlaces de afiliado (Booking, Skyscanner, TrustedHousesitters...). Tú no pagas nada extra. Yo recibo una pequeña comisión.</p>
+</section>
+
 <!-- NEWSLETTER -->
 <section class="newsletter-section" id="newsletter">
   <div class="section-header">
@@ -1054,11 +1157,10 @@
         <button type="button">🔍</button>
       </div>
       <div class="footer-social-icons">
-        <a href="#" title="Facebook">📘</a>
-        <a href="#" title="X / Twitter">🐦</a>
-        <a href="#" title="YouTube">▶️</a>
-        <a href="#" title="Instagram">📸</a>
+        <a href="https://www.instagram.com/TU_USUARIO" target="_blank" rel="noopener" title="Instagram">📸</a>
+        <a href="https://www.youtube.com/@TU_CANAL" target="_blank" rel="noopener" title="YouTube">▶️</a>
         <a href="#" title="TikTok">🎵</a>
+        <a href="#" title="Pinterest">📌</a>
       </div>
     </div>
     <!-- Columna recursos -->
@@ -1154,24 +1256,43 @@
       post6_date: "🗓️ Sep 2024",
       post6_loc: "📍 Europa",
       read_more: "Leer más →",
-      nina_label: "La protagonista",
-      nina_title: "Conoce a <em>Nina</em>",
-      nina_desc: "Nina no es solo nuestra perra — es nuestra brújula, nuestro motivo para explorar parques desconocidos, nuestra excusa perfecta para hablar con extraños y la razón por la que hemos descubierto los rincones más bonitos e inesperados de cada ciudad. Donde nosotros vamos, ella va.",
-      nina_fact1: "países recorridos",
-      nina_fact2: "vuelos completados",
-      nina_fact3: "hogares temporales",
-      nina_fact4: "buena chica",
+      nina_label: "Quién soy",
+      nina_title: "Hola, soy <em>Nina</em>",
+      nina_desc: "Soy Nina, la persona detrás de este blog y de todas estas aventuras. Viajo con mi pareja y nuestra perra (que también se llama Nina 🐾) por el mundo trabajando de forma remota y haciendo house sitting. Empecé sin saber muy bien a dónde llevaría todo esto — y aquí estamos, con 40 países y más de 30 house sits encima.",
+      nina_fact1: "países conocidos",
+      nina_fact2: "house sits completados",
+      nina_fact3: "años viajando",
+      nina_fact4: "nómada digital",
       nl_label: "Únete a la familia",
       nl_title: "¿Te vienes de <em>aventura</em>?",
       nl_desc: "Recibe nuestras historias, guías y tips de house sitting directamente en tu correo. Sin spam, solo aventuras.",
       nl_placeholder: "tu@correo.com",
       nl_btn: "¡Me apunto! 🐾",
       footer_sub: "Dos humanos, una perra y el mundo entero por explorar 🌍",
-      footer_copy: "© 2025 Nina's & Family Adventure · Hecho con ❤️ y muchas aventuras",
+      footer_copy: "© 2025 Nina's & Family Adventure · Realizado vibe coding by Nina 🐾",
       map_cat_house: "House Sit",
       map_cat_dest: "Destino",
       map_cat_nina: "Con Nina",
       nav_recursos: "Recursos",
+      nav_reservas: "Reservas",
+      res_label: "Planificación de viaje",
+      res_title: "Te ayudo a <em>reservar tu viaje</em>",
+      res_intro: "¿Quieres viajar pero no sabes por dónde empezar? Yo te ayudo a planificar y reservar tu viaje de principio a fin. La única condición: usar mis enlaces de afiliado (no te cuesta nada extra a ti).",
+      res_gratis: "✨ Servicio 100% gratuito para ti ✨",
+      res_card1_title: "Experta en viajar barato",
+      res_card1_desc: "He aprendido a viajar gastando muy poco — combinando house sitting, vuelos con alertas de precio, alojamientos alternativos y trucos de presupuesto que funcionan de verdad.",
+      res_card2_title: "40+ países vividos",
+      res_card2_desc: "No hablo de destinos de oídas. He estado en más de 40 países, he vivido en muchos de ellos y sé exactamente qué épocas, zonas y opciones dan más por menos dinero.",
+      res_card3_title: "30+ house sits",
+      res_card3_desc: "Si quieres explorar el house sitting para alojarte gratis, soy la persona adecuada. Te explico cómo funciona, cómo crear tu perfil y cómo conseguir tu primer sit.",
+      res_card4_title: "Busco las mejores ofertas",
+      res_card4_desc: "Comparo vuelos, alojamientos y seguros para encontrar la opción más económica sin renunciar a la calidad. Me encanta este proceso — y se me da muy bien.",
+      res_card5_title: "Viajes con mascotas",
+      res_card5_desc: "Si viajas con perro, tengo experiencia de primera mano. Documentación, vuelos, alojamientos pet-friendly y todo lo que necesitas saber para que tu mascota viaje sin estrés.",
+      res_card6_title: "Respuesta rápida",
+      res_card6_desc: "Cuéntame tu destino, fechas y presupuesto y te preparo opciones concretas. Sin formularios complicados, sin esperas eternas — directamente conmigo.",
+      res_cta: "Escríbeme y empezamos →",
+      res_nota: "* Reservo a través de mis enlaces de afiliado (Booking, Skyscanner, TrustedHousesitters...). Tú no pagas nada extra. Yo recibo una pequeña comisión.",
       aff_label: "Nuestros favoritos",
       aff_title: "Herramientas que <em>usamos de verdad</em>",
       aff_intro: "No recomendamos nada que no hayamos probado nosotros mismos. Estas son las herramientas que hacen posible nuestra vida nómada — algunas tienen descuentos especiales para ti.",
@@ -1269,24 +1390,43 @@
       post6_date: "🗓️ Sep 2024",
       post6_loc: "📍 Europe",
       read_more: "Read more →",
-      nina_label: "The star",
-      nina_title: "Meet <em>Nina</em>",
-      nina_desc: "Nina is not just our dog — she is our compass, our reason to explore unknown parks, our perfect excuse to talk to strangers and the reason we've discovered the most beautiful and unexpected corners of every city. Where we go, she goes.",
-      nina_fact1: "countries explored",
-      nina_fact2: "flights completed",
-      nina_fact3: "temporary homes",
-      nina_fact4: "good girl",
+      nina_label: "Who I am",
+      nina_title: "Hi, I'm <em>Nina</em>",
+      nina_desc: "I'm Nina, the person behind this blog and all these adventures. I travel with my partner and our dog (who is also called Nina 🐾) working remotely and house sitting around the world. I started without knowing where it would all lead — and here we are, with 40+ countries and 30+ house sits under our belt.",
+      nina_fact1: "countries visited",
+      nina_fact2: "house sits completed",
+      nina_fact3: "digital nomad",
+      nina_fact4: "dog co-pilot",
       nl_label: "Join the family",
       nl_title: "Ready for an <em>adventure</em>?",
       nl_desc: "Get our stories, guides and house sitting tips straight to your inbox. No spam, just adventures.",
       nl_placeholder: "your@email.com",
       nl_btn: "Sign me up! 🐾",
       footer_sub: "Two humans, one dog and the whole world to explore 🌍",
-      footer_copy: "© 2025 Nina's & Family Adventure · Made with ❤️ and lots of adventures",
+      footer_copy: "© 2025 Nina's & Family Adventure · Realizado vibe coding by Nina 🐾",
       map_cat_house: "House Sit",
       map_cat_dest: "Destination",
       map_cat_nina: "With Nina",
       nav_recursos: "Resources",
+      nav_reservas: "Bookings",
+      res_label: "Travel planning",
+      res_title: "Let me help you <em>plan your trip</em>",
+      res_intro: "Want to travel but don't know where to start? I'll help you plan and book your trip from start to finish. The only condition: use my affiliate links (no extra cost to you).",
+      res_gratis: "✨ 100% free service for you ✨",
+      res_card1_title: "Expert at traveling cheap",
+      res_card1_desc: "I've learned to travel spending very little — combining house sitting, flight price alerts, alternative accommodation and real budget tricks that actually work.",
+      res_card2_title: "40+ countries lived in",
+      res_card2_desc: "I don't talk about destinations second-hand. I've been to over 40 countries, lived in many of them and know exactly which times, areas and options give the most for less money.",
+      res_card3_title: "30+ house sits",
+      res_card3_desc: "If you want to explore house sitting to stay for free, I'm the right person. I'll explain how it works, how to create your profile and how to land your first sit.",
+      res_card4_title: "I find the best deals",
+      res_card4_desc: "I compare flights, accommodation and insurance to find the most affordable option without sacrificing quality. I love this process — and I'm very good at it.",
+      res_card5_title: "Pet-friendly travel",
+      res_card5_desc: "If you travel with a dog, I have first-hand experience. Documents, flights, pet-friendly stays and everything you need to know for a stress-free trip with your pet.",
+      res_card6_title: "Quick response",
+      res_card6_desc: "Tell me your destination, dates and budget and I'll prepare concrete options. No complicated forms, no endless waiting — directly with me.",
+      res_cta: "Message me and let's start →",
+      res_nota: "* I book through my affiliate links (Booking, Skyscanner, TrustedHousesitters...). You pay nothing extra. I receive a small commission.",
       aff_label: "Our favorites",
       aff_title: "Tools we <em>actually use</em>",
       aff_intro: "We never recommend anything we haven't tried ourselves. These are the tools that make our nomadic life possible — some have special discounts just for you.",
@@ -1384,24 +1524,43 @@
       post6_date: "🗓️ Sep 2024",
       post6_loc: "📍 Europe",
       read_more: "Lire la suite →",
-      nina_label: "La vedette",
-      nina_title: "Rencontrez <em>Nina</em>",
-      nina_desc: "Nina n'est pas seulement notre chienne — c'est notre boussole, notre raison d'explorer des parcs inconnus, notre excuse parfaite pour parler à des inconnus et la raison pour laquelle nous avons découvert les coins les plus beaux et inattendus de chaque ville. Là où nous allons, elle va.",
-      nina_fact1: "pays parcourus",
-      nina_fact2: "vols effectués",
-      nina_fact3: "maisons temporaires",
-      nina_fact4: "bonne fille",
+      nina_label: "Qui je suis",
+      nina_title: "Bonjour, je suis <em>Nina</em>",
+      nina_desc: "Je suis Nina, la personne derrière ce blog et toutes ces aventures. Je voyage avec mon partenaire et notre chienne (qui s'appelle aussi Nina 🐾) en travaillant à distance et en faisant du house sitting. J'ai commencé sans trop savoir où tout cela mènerait — et nous voilà avec plus de 40 pays et 30 house sits au compteur.",
+      nina_fact1: "pays visités",
+      nina_fact2: "house sits réalisés",
+      nina_fact3: "nomade numérique",
+      nina_fact4: "chienne copilote",
       nl_label: "Rejoignez la famille",
       nl_title: "Prêt pour l'<em>aventure</em>&nbsp;?",
       nl_desc: "Recevez nos histoires, guides et conseils de house sitting directement dans votre boîte mail. Pas de spam, juste des aventures.",
       nl_placeholder: "votre@email.com",
       nl_btn: "Je m'inscris ! 🐾",
       footer_sub: "Deux humains, une chienne et le monde entier à explorer 🌍",
-      footer_copy: "© 2025 Nina's & Family Adventure · Fait avec ❤️ et beaucoup d'aventures",
+      footer_copy: "© 2025 Nina's & Family Adventure · Realizado vibe coding by Nina 🐾",
       map_cat_house: "House Sit",
       map_cat_dest: "Destination",
       map_cat_nina: "Avec Nina",
       nav_recursos: "Ressources",
+      nav_reservas: "Réservations",
+      res_label: "Planification de voyage",
+      res_title: "Je vous aide à <em>réserver votre voyage</em>",
+      res_intro: "Vous voulez voyager mais ne savez pas par où commencer ? Je vous aide à planifier et réserver votre voyage de A à Z. La seule condition : utiliser mes liens affiliés (sans frais supplémentaires pour vous).",
+      res_gratis: "✨ Service 100% gratuit pour vous ✨",
+      res_card1_title: "Experte en voyage pas cher",
+      res_card1_desc: "J'ai appris à voyager en dépensant très peu — en combinant le house sitting, les alertes de prix de vols, les hébergements alternatifs et de vrais conseils budgétaires.",
+      res_card2_title: "40+ pays vécus",
+      res_card2_desc: "Je ne parle pas de destinations de seconde main. J'ai été dans plus de 40 pays, j'ai vécu dans beaucoup d'entre eux et je sais exactement quelles périodes et options offrent le meilleur rapport qualité-prix.",
+      res_card3_title: "30+ house sits",
+      res_card3_desc: "Si vous voulez explorer le house sitting pour vous loger gratuitement, je suis la bonne personne. Je vous explique comment ça marche et comment décrocher votre premier sit.",
+      res_card4_title: "Je trouve les meilleures offres",
+      res_card4_desc: "Je compare vols, hébergements et assurances pour trouver l'option la plus économique sans sacrifier la qualité. J'adore ce processus — et j'y suis très bonne.",
+      res_card5_title: "Voyages avec animaux",
+      res_card5_desc: "Si vous voyagez avec un chien, j'ai une expérience de première main. Documents, vols, hébergements pet-friendly et tout ce qu'il faut savoir pour un voyage sans stress.",
+      res_card6_title: "Réponse rapide",
+      res_card6_desc: "Dites-moi votre destination, vos dates et votre budget et je vous prépare des options concrètes. Sans formulaires compliqués, sans attente interminable — directement avec moi.",
+      res_cta: "Écrivez-moi et on commence →",
+      res_nota: "* Je réserve via mes liens affiliés (Booking, Skyscanner, TrustedHousesitters...). Vous ne payez rien de plus. Je reçois une petite commission.",
       aff_label: "Nos favoris",
       aff_title: "Les outils qu'on <em>utilise vraiment</em>",
       aff_intro: "Nous ne recommandons jamais rien que nous n'avons pas testé nous-mêmes. Ce sont les outils qui rendent notre vie nomade possible — certains ont des réductions spéciales pour vous.",
