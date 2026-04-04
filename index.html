@@ -8,19 +8,19 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <style>
   :root {
-    --terracotta: #C4613A;
-    --rust: #A8442A;
-    --sand: #E8D5B0;
-    --cream: #FAF4EA;
-    --warm-brown: #6B3E26;
-    --tropical-teal: #2A8C7A;
-    --tropical-teal-light: #3AAFA0;
-    --mango: #F0A500;
-    --mango-light: #F7C548;
-    --jungle: #2D5A3D;
-    --blush: #F2C4A0;
-    --dark: #2C1A0E;
-    --text: #3D2B1A;
+    --terracotta: #D4845C;
+    --rust: #C4613A;
+    --sand: #EDE0C4;
+    --cream: #FBF7F0;
+    --warm-brown: #9B6445;
+    --tropical-teal: #3AAFA0;
+    --tropical-teal-light: #5BBFB2;
+    --mango: #F2B030;
+    --mango-light: #F7C85A;
+    --jungle: #4A7A58;
+    --blush: #F5CEAA;
+    --dark: #3D2B1A;
+    --text: #5C4030;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -848,9 +848,8 @@
     </div>
     <div id="travel-map"></div>
     <div class="map-legend">
-      <div class="legend-item"><div class="legend-dot dot-house"></div><span data-i18n="legend_house">House Sit</span></div>
-      <div class="legend-item"><div class="legend-dot dot-dest"></div><span data-i18n="legend_dest">Destino visitado</span></div>
-      <div class="legend-item"><div class="legend-dot dot-nina"></div><span data-i18n="legend_nina">Aventura con Nina</span></div>
+      <div class="legend-item"><div class="legend-dot dot-house"></div><span data-i18n="legend_house">House Sitting</span></div>
+      <div class="legend-item"><div class="legend-dot dot-dest"></div><span data-i18n="legend_dest">Viaje propio</span></div>
     </div>
   </div>
 </section>
@@ -1051,10 +1050,10 @@
       <a href="#" class="aff-cta" target="_blank" rel="noopener noreferrer" data-i18n="aff_btn">Descubrir →</a>
     </div>
     <div class="aff-card">
-      <span class="aff-badge badge-teal" data-i18n="aff3_badge">💳 0 comisiones</span>
+      <span class="aff-badge badge-teal" data-i18n="aff3_badge">💳 Sin comisiones</span>
       <span class="aff-icon">💳</span>
-      <h3>Wise</h3>
-      <p data-i18n="aff3_desc">La tarjeta que usamos en 12 países sin pagar comisiones. Tipo de cambio real, sin sorpresas. Nos ha ahorrado cientos de euros en el camino.</p>
+      <h3>Revolut</h3>
+      <p data-i18n="aff3_desc">La app bancaria que usamos en todos nuestros viajes. Sin comisiones en el extranjero, cambio de divisa al instante y control total de tu dinero desde el móvil.</p>
       <a href="#" class="aff-cta" target="_blank" rel="noopener noreferrer" data-i18n="aff_btn">Descubrir →</a>
     </div>
     <div class="aff-card">
@@ -1072,10 +1071,10 @@
       <a href="#" class="aff-cta" target="_blank" rel="noopener noreferrer" data-i18n="aff_btn">Descubrir →</a>
     </div>
     <div class="aff-card">
-      <span class="aff-badge badge-rust" data-i18n="aff6_badge">🎒 Nuestro equipo</span>
-      <span class="aff-icon">🎒</span>
-      <h3 data-i18n="aff6_title">Nuestra mochila de viaje</h3>
-      <p data-i18n="aff6_desc">Todo lo que metemos en nuestra mochila — probado y aprobado por Nina. Gadgets de trabajo remoto y accesorios esenciales para viajar con perro.</p>
+      <span class="aff-badge badge-rust" data-i18n="aff6_badge">🎟️ Experiencias</span>
+      <span class="aff-icon">🎟️</span>
+      <h3>GetYourGuide</h3>
+      <p data-i18n="aff6_desc">La plataforma que usamos para reservar tours, actividades y experiencias únicas en cada destino. Cancelación gratuita en la mayoría y precios muy competitivos.</p>
       <a href="#" class="aff-cta" target="_blank" rel="noopener noreferrer" data-i18n="aff_btn">Descubrir →</a>
     </div>
   </div>
@@ -1123,8 +1122,8 @@
       <p data-i18n="res_card6_desc">Cuéntame tu destino, fechas y presupuesto y te preparo opciones concretas. Sin formularios complicados, sin esperas eternas — directamente conmigo.</p>
     </div>
   </div>
-  <a href="mailto:TU@EMAIL.COM" class="reservas-cta" data-i18n="res_cta">Escríbeme y empezamos →</a>
-  <p class="reservas-nota" data-i18n="res_nota">* Reservo a través de mis enlaces de afiliado (Booking, Skyscanner, TrustedHousesitters...). Tú no pagas nada extra. Yo recibo una pequeña comisión.</p>
+  <a href="https://calendly.com/TU-USUARIO/15min" target="_blank" rel="noopener noreferrer" class="reservas-cta" data-i18n="res_cta">📅 Reserva tu sesión gratuita de 15 min →</a>
+  <p class="reservas-nota" data-i18n="res_nota">* Sesión 100% gratuita. Usaremos mis enlaces de afiliado (TrustedHousesitters, GetYourGuide, Revolut, SafetyWing...) — tú no pagas nada extra.</p>
 </section>
 
 <!-- NEWSLETTER -->
@@ -1206,9 +1205,8 @@
       stat4_label: "Historias por contar",
       map_label: "Nuestro recorrido",
       map_title: "El mapa de <em>nuestras aventuras</em>",
-      legend_house: "House Sit",
-      legend_dest: "Destino visitado",
-      legend_nina: "Aventura con Nina",
+      legend_house: "House Sitting",
+      legend_dest: "Viaje propio",
       cat_label: "Explora",
       cat_title: "Nuestras <em>categorías</em>",
       cat1_title: "House Sitting",
@@ -1269,7 +1267,7 @@
       nl_placeholder: "tu@correo.com",
       nl_btn: "¡Me apunto! 🐾",
       footer_sub: "Dos humanos, una perra y el mundo entero por explorar 🌍",
-      footer_copy: "© 2026 ❤️ 🐾 Realizado vibe coding by Nina",
+      footer_copy: "© 2026 ❤️ 🐾 Mi primer vibe coding",
       map_cat_house: "House Sit",
       map_cat_dest: "Destino",
       map_cat_nina: "Con Nina",
@@ -1340,9 +1338,8 @@
       stat4_label: "Stories to tell",
       map_label: "Our journey",
       map_title: "The map of <em>our adventures</em>",
-      legend_house: "House Sit",
-      legend_dest: "Visited destination",
-      legend_nina: "Adventure with Nina",
+      legend_house: "House Sitting",
+      legend_dest: "Own trip",
       cat_label: "Explore",
       cat_title: "Our <em>categories</em>",
       cat1_title: "House Sitting",
@@ -1403,7 +1400,7 @@
       nl_placeholder: "your@email.com",
       nl_btn: "Sign me up! 🐾",
       footer_sub: "Two humans, one dog and the whole world to explore 🌍",
-      footer_copy: "© 2026 ❤️ 🐾 Realizado vibe coding by Nina",
+      footer_copy: "© 2026 ❤️ 🐾 Mi primer vibe coding",
       map_cat_house: "House Sit",
       map_cat_dest: "Destination",
       map_cat_nina: "With Nina",
@@ -1474,9 +1471,8 @@
       stat4_label: "Histoires à raconter",
       map_label: "Notre parcours",
       map_title: "La carte de <em>nos aventures</em>",
-      legend_house: "House Sit",
-      legend_dest: "Destination visitée",
-      legend_nina: "Aventure avec Nina",
+      legend_house: "House Sitting",
+      legend_dest: "Voyage perso",
       cat_label: "Explorer",
       cat_title: "Nos <em>catégories</em>",
       cat1_title: "House Sitting",
@@ -1537,7 +1533,7 @@
       nl_placeholder: "votre@email.com",
       nl_btn: "Je m'inscris ! 🐾",
       footer_sub: "Deux humains, une chienne et le monde entier à explorer 🌍",
-      footer_copy: "© 2026 ❤️ 🐾 Realizado vibe coding by Nina",
+      footer_copy: "© 2026 ❤️ 🐾 Mi primer vibe coding",
       map_cat_house: "House Sit",
       map_cat_dest: "Destination",
       map_cat_nina: "Avec Nina",
@@ -1639,30 +1635,30 @@
     { name: "Lisboa",        country: "Portugal",      lat: 38.717, lng:  -9.139, type: "house", emoji: "🏡", date: "Mar 2025",
       notes: { es: "Nuestro primer house sit — dos gatos y una ciudad increíble", en: "Our first house sit — two cats and an incredible city", fr: "Notre premier house sit — deux chats et une ville incroyable" } },
     { name: "Medellín",      country: "Colombia",      lat:  6.244, lng: -75.581, type: "dest",  emoji: "🌿", date: "Ene 2025",
-      notes: { es: "La ciudad de la eterna primavera, perfecta con perros", en: "The city of eternal spring, perfect with dogs", fr: "La ville du printemps éternel, parfaite avec les chiens" } },
-    { name: "Barcelona",     country: "España",        lat: 41.385, lng:   2.173, type: "nina",  emoji: "🐾", date: "Ago 2024",
-      notes: { es: "Nina conquistó las playas y los parques", en: "Nina conquered the beaches and parks", fr: "Nina a conquis les plages et les parcs" } },
+      notes: { es: "Viaje propio — la ciudad de la eterna primavera", en: "Own trip — the city of eternal spring", fr: "Voyage perso — la ville du printemps éternel" } },
+    { name: "Barcelona",     country: "España",        lat: 41.385, lng:   2.173, type: "dest",  emoji: "✈️", date: "Ago 2024",
+      notes: { es: "Viaje propio — playas, tapas y buena vida", en: "Own trip — beaches, tapas and good vibes", fr: "Voyage perso — plages, tapas et bonne vie" } },
     { name: "Ámsterdam",     country: "Países Bajos",  lat: 52.370, lng:   4.895, type: "dest",  emoji: "🚲", date: "Jun 2024",
-      notes: { es: "Una ciudad sorprendentemente pet-friendly", en: "A surprisingly pet-friendly city", fr: "Une ville étonnamment pet-friendly" } },
-    { name: "Tulum",         country: "México",        lat: 20.211, lng: -87.465, type: "nina",  emoji: "🌴", date: "Feb 2024",
-      notes: { es: "Nina en la playa por primera vez — caos total (y mucho amor)", en: "Nina at the beach for the first time — total chaos (and lots of love)", fr: "Nina à la plage pour la première fois — chaos total (et beaucoup d'amour)" } },
+      notes: { es: "Viaje propio — canales, bicicletas y mucha lluvia", en: "Own trip — canals, bikes and lots of rain", fr: "Voyage perso — canaux, vélos et beaucoup de pluie" } },
+    { name: "Tulum",         country: "México",        lat: 20.211, lng: -87.465, type: "dest",  emoji: "🌴", date: "Feb 2024",
+      notes: { es: "Viaje propio — playas de ensueño y cenotes increíbles", en: "Own trip — dreamy beaches and incredible cenotes", fr: "Voyage perso — plages de rêve et cenotes incroyables" } },
     { name: "Porto",         country: "Portugal",      lat: 41.157, lng:  -8.629, type: "house", emoji: "🏡", date: "Dic 2023",
       notes: { es: "House sit de dos semanas con un golden retriever", en: "Two-week house sit with a golden retriever", fr: "House sit de deux semaines avec un golden retriever" } },
     { name: "Berlín",        country: "Alemania",      lat: 52.520, lng:  13.405, type: "dest",  emoji: "🏙️", date: "Oct 2023",
-      notes: { es: "El paraíso para perros — parques por todos lados", en: "Paradise for dogs — parks everywhere", fr: "Le paradis pour les chiens — des parcs partout" } },
-    { name: "Bali",          country: "Indonesia",     lat: -8.409, lng: 115.189, type: "nina",  emoji: "🌺", date: "May 2023",
-      notes: { es: "Nuestro primer destino lejano con Nina", en: "Our first distant destination with Nina", fr: "Notre première destination lointaine avec Nina" } },
+      notes: { es: "Viaje propio — arte, historia y la mejor fiesta de Europa", en: "Own trip — art, history and Europe's best nightlife", fr: "Voyage perso — art, histoire et la meilleure fête d'Europe" } },
+    { name: "Bali",          country: "Indonesia",     lat: -8.409, lng: 115.189, type: "dest",  emoji: "🌺", date: "May 2023",
+      notes: { es: "Viaje propio — templos, arrozales y atardeceres mágicos", en: "Own trip — temples, rice fields and magic sunsets", fr: "Voyage perso — temples, rizières et couchers de soleil magiques" } },
     { name: "Buenos Aires",  country: "Argentina",     lat: -34.603,lng: -58.381, type: "dest",  emoji: "🥩", date: "Mar 2023",
-      notes: { es: "El asado, los parques y la mejor veterinaria del viaje", en: "The barbecue, the parks and the best vet of the trip", fr: "Le barbecue, les parcs et le meilleur vétérinaire du voyage" } },
+      notes: { es: "Viaje propio — tango, asado y una ciudad que enamora", en: "Own trip — tango, barbecue and a city you fall in love with", fr: "Voyage perso — tango, barbecue et une ville dont on tombe amoureux" } },
     { name: "Chiang Mai",    country: "Tailandia",     lat: 18.788, lng:  98.985, type: "house", emoji: "🏡", date: "Ene 2023",
       notes: { es: "House sit en una villa rodeada de montañas", en: "House sit in a villa surrounded by mountains", fr: "House sit dans une villa entourée de montagnes" } },
     { name: "Roma",          country: "Italia",        lat: 41.902, lng:  12.496, type: "dest",  emoji: "🏛️", date: "Sep 2022",
-      notes: { es: "Descubrir que casi todos los restaurantes admiten perros", en: "Discovering that almost all restaurants welcome dogs", fr: "Découvrir que presque tous les restaurants acceptent les chiens" } },
-    { name: "Ciudad de México", country: "México",     lat: 19.433, lng: -99.133, type: "nina",  emoji: "🌮", date: "Jul 2022",
-      notes: { es: "CDMX con Nina: sorpresas, parques y mucha comida", en: "CDMX with Nina: surprises, parks and lots of food", fr: "CDMX avec Nina : surprises, parcs et beaucoup de nourriture" } },
+      notes: { es: "Viaje propio — pasta, historia y callejones sin fin", en: "Own trip — pasta, history and endless alleyways", fr: "Voyage perso — pâtes, histoire et ruelles sans fin" } },
+    { name: "Ciudad de México", country: "México",     lat: 19.433, lng: -99.133, type: "dest",  emoji: "🌮", date: "Jul 2022",
+      notes: { es: "Viaje propio — tacos, cultura y una energía única", en: "Own trip — tacos, culture and a unique energy", fr: "Voyage perso — tacos, culture et une énergie unique" } },
   ];
 
-  const colors = { house: "#C4613A", dest: "#2A8C7A", nina: "#2D5A3D" };
+  const colors = { house: "#D4845C", dest: "#3AAFA0" };
 
   const map = L.map("travel-map", {
     center: [25, 10], zoom: 2, minZoom: 1, maxZoom: 12, scrollWheelZoom: false,
@@ -1681,7 +1677,7 @@
   function refreshMapMarkers(lang) {
     markersLayer.clearLayers();
     const t = translations[lang];
-    const catLabels = { house: t.map_cat_house, dest: t.map_cat_dest, nina: t.map_cat_nina };
+    const catLabels = { house: t.map_cat_house, dest: t.map_cat_dest };
 
     places.forEach(p => {
       const color = colors[p.type];
